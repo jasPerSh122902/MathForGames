@@ -1,0 +1,38 @@
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.exe
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.deps.json
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.runtimeconfig.json
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.runtimeconfig.dev.json
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.pdb
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\Raylib-cs.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libraylib.so
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libraylib.dylib
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\raylib.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\raylib.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathLibaray.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\bin\Debug\netcoreapp3.1\MathLibaray.pdb
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.csprojAssemblyReference.cache
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.AssemblyInfoInputs.cache
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.AssemblyInfo.cs
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.csproj.CopyComplete
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.pdb
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.exe
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.deps.json
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.runtimeconfig.json
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.runtimeconfig.dev.json
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathForGames.pdb
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\Raylib-cs.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libraylib.so
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libraylib.dylib
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\raylib.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\raylib.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathLibaray.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\bin\Debug\netcoreapp3.1\MathLibaray.pdb
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.csprojAssemblyReference.cache
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.AssemblyInfoInputs.cache
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.AssemblyInfo.cs
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.csproj.CopyComplete
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\obj\Debug\netcoreapp3.1\MathForGames.pdb
