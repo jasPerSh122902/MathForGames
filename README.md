@@ -7,6 +7,6 @@
 >> Up-key = up.
 >> Down-key = down.
 >> Left-key = left.
->> Right-key = right.
+>> Right-key = right.<<
   That-is-all-of-the-controls-for-the-appliction.
   Two-player-coming.
