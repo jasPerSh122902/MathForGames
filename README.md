@@ -8,5 +8,5 @@
 >> Down-key = down.
 >> Left-key = left.
 >> Right-key = right.<<
- >> That-is-all-of-the-controls-for-the-appliction.
-  Two-player-coming.
+ #That-is-all-of-the-controls-for-the-appliction.
+  #Two-player-coming.
