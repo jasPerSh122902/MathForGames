@@ -8,6 +8,6 @@
 >> Down-key = down.
 >> Left-key = left.
 >> Right-key = right.<<
---
-That-is-all-of-the-controls-for-the-appliction.
+
+--That-is-all-of-the-controls-for-the-appliction.
 Two-player-coming.
