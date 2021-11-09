@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "5Yz/j8rhqKCcXZAF7bHEqk5QUTPwK3SioaIoQtN3/qZ/SBhi/m/b52C842klxnSirBhx2d7DdpYx6S9tvEqTeQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jaspe\\OneDrive\\Documents\\GitHub\\MathForGames-master\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jaspe\\.nuget\\packages\\raylib-cs\\3.7.0.1\\raylib-cs.3.7.0.1.nupkg.sha512",
+    "C:\\Users\\Jaspe\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

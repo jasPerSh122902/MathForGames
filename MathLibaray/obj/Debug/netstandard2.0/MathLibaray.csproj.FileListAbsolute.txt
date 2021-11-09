@@ -1,0 +1,17 @@
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.deps.json
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.pdb
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.AssemblyInfoInputs.cache
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.AssemblyInfo.cs
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.dll
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.pdb
+E:\the second project\exersises\Exersies-from-teacher\Exersises from teacher\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.csprojAssemblyReference.cache
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.deps.json
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.dll
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.pdb
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.AssemblyInfoInputs.cache
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.AssemblyInfo.cs
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.csproj.CoreCompileInputs.cache
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.dll
+C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.pdb
