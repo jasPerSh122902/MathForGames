@@ -4,7 +4,7 @@
   To-scale-the-take-up-watch-it-shrink-you-need-to-*press*-*z*.
   There-is-no-limit-to-each.
   To-move-the-tank-you-need-to-use-the-arrow-keys.
->> Up-key = up.
+>>>> Up-key = up.
 >> Down-key = down.
 >> Left-key = left.
 >> Right-key = right.<<
