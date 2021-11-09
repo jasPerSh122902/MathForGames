@@ -1,7 +1,8 @@
 # *MathForGames*
   The-Math-for-Games-application-is-meant-to-be-a-tank-with-5-peices.
 
-  To-move-the-tank-you-need-to-use-the-arrow-keys-and-shrink-and-grow.
+  To-move-the-tank-you-need-to-use-the-arrow-keys
+  There-is-the-funciton-to-make-the-takn-bigger-or-smaller.
   
 >> To-scale-you-need-to-*press*-*x*.
 >> To-scale-you-need-to-*press*-*z*.
