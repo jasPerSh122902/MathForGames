@@ -102,7 +102,7 @@ namespace MathForGames
 
             player.SetScale(5, 3, 5);
             player.SetTranslation(0, 0, 0);
-            player.SetColor(new Vector4(5, 5, 65, 5));
+            player.SetColor(new Vector4(255, 0, 255, 255));
 
             enemey1.SetScale(5, 3, 5);
             enemey1.SetTranslation(0, 0, 0);
@@ -143,10 +143,10 @@ namespace MathForGames
         private void Draw()
         {
             Raylib.BeginDrawing();
-           
+            Raylib.BeginMode3D(_camera);
 
-            Raylib.ClearBackground(Color.BLACK);
-            Raylib.DrawGrid(50, 100);
+            Raylib.ClearBackground(Color.DARKGREEN);
+            Raylib.DrawGrid(50, 1);
 
 
             //add all of the icons back to the buffer

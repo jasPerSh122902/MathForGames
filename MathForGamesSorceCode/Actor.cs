@@ -144,9 +144,9 @@ namespace MathForGames
             get
             {
                 //sets the x and y scale
-                float xScale = new Vector3(GolbalTransform.M00, GolbalTransform.M10, GolbalTransform.M20).Magnitude;
-                float yScale = new Vector3(GolbalTransform.M01, GolbalTransform.M11, GolbalTransform.M21).Magnitude;
-                float zScale = new Vector3(GolbalTransform.M02, GolbalTransform.M12, GolbalTransform.M22).Magnitude;
+                float xScale = new Vector3(_scale.M00, _scale.M10, _scale.M20).Magnitude;
+                float yScale = new Vector3(_scale.M01, _scale.M11, _scale.M21).Magnitude;
+                float zScale = new Vector3(_scale.M02, _scale.M12, _scale.M22).Magnitude;
 
                 //returns the x and y
                 return new Vector3(xScale, yScale, zScale);
@@ -309,7 +309,7 @@ namespace MathForGames
         {
 
             UpdateTransform();
-            Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y);
+            Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y + ":" , WorldPosistion.Z);
         }
 
         /// <summary>
@@ -319,7 +319,7 @@ namespace MathForGames
         {
             System.Numerics.Vector3 position = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
 
-            System.Numerics.Vector3 startPos = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
+            //System.Numerics.Vector3 startPos = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
             System.Numerics.Vector3 endPos = new System.Numerics.Vector3(WorldPosistion.X + Forward.X * 10, WorldPosistion.Y + Forward.Y * 10, WorldPosistion.Z + Forward.Z * 10);
 
             switch (_shape)
@@ -331,6 +331,7 @@ namespace MathForGames
                     Raylib.DrawSphere(position, Size.X, ShapeColor);
                     break;
             }
+            Raylib.DrawLine3D(position, endPos, Color.RED);
 
         }
 
