@@ -189,9 +189,12 @@ namespace MathForGames
             AABBCollider player2BoxCollider = new AABBCollider(34, 42, player2);
             player2.Collider = playerBoxCollider;
 
-
+            UIText Ui = new UIText(0, 10,10, "Health", Color.DARKBLUE,0,150, 80, 30, "Player 1 Health " + player.Health);
+            UIText Ui2 = new UIText(600, 10, 10, "Health", Color.DARKBLUE, 0, 150, 80, 30, "Player 2 Health " + player2.Health);
 
             //adds the collsion to the enemy
+            scene.AddUIElement(Ui);
+            scene.AddUIElement(Ui2);
             _currentSceneIndex = AddScene(scene);
         }
 
@@ -231,6 +234,9 @@ namespace MathForGames
 
 
             Raylib.EndMode3D();
+
+            _scenes[_currentSceneIndex].DrawUI();
+
             Raylib.EndDrawing();
 
         }

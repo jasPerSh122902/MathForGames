@@ -69,12 +69,16 @@ namespace MathForGames
             Height = height;
             _font = Raylib.LoadFont("resources/fonts/alagard.png");
             _fontSize = fontSize;
+            SetColor(color);
         }
 
         public override void Draw()
         {
-            Rectangle textBox = new Rectangle(LocalPosistion.X, LocalPosistion.Y, Width, Height);
-            Raylib.DrawTextRec(_font, Text, textBox, _fontSize,1, true, Color.BLUE);
+
+            Rectangle rec = new Rectangle(LocalPosistion.X, LocalPosistion.Y, Width, Height);
+            Raylib.DrawRectangleRec(rec, Color.DARKGRAY);
+            Raylib.DrawTextRec(_font, Text, rec, _fontSize,1, true, ShapeColor);
+            
         }
     }
 }
