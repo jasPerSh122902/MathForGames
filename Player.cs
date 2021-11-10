@@ -188,7 +188,16 @@ namespace MathForGames
             //if actor is touched by teh enenmy end the game
             if (actor is Enemey)
             {
+                _velocity *= .50f;
+                LocalPosistion += _velocity;
+                _health--;
+            }
 
+            if (actor is Bullet)
+            {
+                _health--;
+                _velocity *= .50f;
+                LocalPosistion += _velocity;
             }
         }
 
@@ -198,7 +207,7 @@ namespace MathForGames
         public override void Draw()
         {
             base.Draw();
-            //Collider.Draw();
+            Collider.Draw();
         }
     }
 }

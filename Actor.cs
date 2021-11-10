@@ -347,9 +347,7 @@ namespace MathForGames
         /// Startes when the player hits a target.
         /// </summary>
         public virtual void OnCollision(Actor actor, Scene currentScene)
-        {
-
-        }
+        { }
 
         /// <summary>
         /// Checks if theis actor collided with anoth actor

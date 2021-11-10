@@ -138,12 +138,18 @@ namespace MathForGames
             CircleCollider playerCollider = new CircleCollider(5, player);
             AABBCollider playerBoxCollider = new AABBCollider(34, 42, player);
 
-            Enemey enemey1 = new Enemey(10, 1, 10, 30, 20, player, "Enemy1", Shape.SPHERE);
+            player.Collider = playerBoxCollider;
+
+            Enemey enemey1 = new Enemey(10, 1, 10, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey1.SetScale(5, 3, 5);
             enemey1.SetTranslation(-10, 1, -15);
             enemey1.LookAt(player.WorldPosistion);
             enemey1.SetColor(new Vector4(255, 0, 255, 255));
             scene.AddActor(enemey1);
+
+            CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
+            AABBCollider enemyBoxCollider = new AABBCollider(34, 42, enemey1);
+            enemey1.Collider = enemyBoxCollider;
 
             //This is all player
             Player player2 = new Player(10, 5, 20, 50, "Player2", Shape.CUBE);
@@ -181,6 +187,9 @@ namespace MathForGames
             //adds the collision to the player
             CircleCollider player2Collider = new CircleCollider(5, player2);
             AABBCollider player2BoxCollider = new AABBCollider(34, 42, player2);
+            player2.Collider = playerBoxCollider;
+
+
 
             //adds the collsion to the enemy
             _currentSceneIndex = AddScene(scene);
@@ -193,12 +202,13 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
+            
 
             _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 40, _cameraPlayer.WorldPosistion.Z + 40);
             // Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y, _cameraPlayer.WorldPosistion.Z);
 
+            _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
 
             while (Console.KeyAvailable)
                 Console.ReadKey(true);

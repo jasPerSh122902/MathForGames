@@ -11,7 +11,7 @@ namespace MathForGames
         private float _speed;
         private Vector3 _velocity;
         private Player _player;
-        private int _health = 1;
+        private int _health;
         public Scene _scene;
 
 
@@ -41,7 +41,7 @@ namespace MathForGames
             _speed = speed;
             _player = player;
             _health = health;
-            health = 1;
+            health = 5;
         }
 
         public override void Update(float deltaTime, Scene currentScene)
@@ -82,15 +82,15 @@ namespace MathForGames
                 * 180 / Math.PI < 55) && distace < 150; 
         }
 
-        public void Oncollision(Actor actor)
+        public override void OnCollision(Actor actor, Scene currentScene)
         {
             if (actor is Bullet)
             {
-                _health -= 1;
+                _health--;
                 Console.WriteLine("o2iakjdflaskjdflaskdjflaskjdf");
                 if (_health == 0)
                 {
-
+                    //currentScene.RemoveActor(this);  
                 }
             }
         }
@@ -98,7 +98,7 @@ namespace MathForGames
         public override void Draw()
         {
             base.Draw();
-            // Collider.Draw();
+            Collider.Draw();
         }
     }
 }

@@ -67,21 +67,17 @@ namespace MathForGames
             _timer += deltaTime;
 
             
-            if (_timer >= 3)
-            {
+            //if (_timer >= 3)
                 //currentScene.RemoveActor(this);
-            }
 
-            
         }
 
         public override void OnCollision(Actor actor, Scene currentScene)
         {
             if (actor is Enemey)
             {
-                Console.WriteLine("askdjfalskdjflasdjf");
-                //The romove actor dos not work right now
-                //scene.RemoveActor(actor);
+                Console.WriteLine("alskdjfalksdjflaskfjalsdkjfalsdkjfalsdkfjalsdkfjalsdkfjasldkjfalskdjf");
+                currentScene.RemoveActor(this);
             }
         }
         public override void Draw()
