@@ -10,6 +10,7 @@ namespace MathForGames
     {
         private float _width;
         public float _height;
+        public float _lenght;
 
         /// <summary>
         /// The size of ths collider on the x axis
@@ -29,6 +30,12 @@ namespace MathForGames
             set { _height = value; }
         }
 
+        public float Lenght
+        {
+            get { return _height; }
+            set { _height = value; }
+        }
+
         /// <summary>
         /// The farthest left x position of the collider
         /// </summary>
@@ -36,7 +43,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.X + -(_width / 2);
+                return Owner.LocalPosistion.X + -(Width / 2);
             }
         }
 
@@ -47,7 +54,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.X + _width / 2;
+                return Owner.LocalPosistion.X + (Width / 2);
             }
         }
 
@@ -58,7 +65,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.Y + -(_height / 2);
+                return Owner.LocalPosistion.Y + -(Height / 2);
             }
         }
 
@@ -69,7 +76,23 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.Y + Height / 2;
+                return Owner.LocalPosistion.Y + (Height / 2);
+            }
+        }
+
+        public float Front
+        {
+            get
+            {
+                return Owner.LocalPosistion.Y + (Lenght / 2);
+            }
+        }
+
+        public float Back
+        {
+            get
+            {
+                return Owner.LocalPosistion.Y + (Lenght / 2);
             }
         }
 
@@ -97,7 +120,9 @@ namespace MathForGames
             if (other.Left <= Right &&
                 other.Top <= Bottom &&
                 Left <= other.Right &&
-                Top <= other.Bottom)
+                Top <= other.Bottom &&
+                Front <= other.Back &&
+               Back <= other.Front)
             {
                 return true;
             }
@@ -111,7 +136,7 @@ namespace MathForGames
         public override void Draw()
         {
             //is meant to draw the collider that is the rectangle
-            Raylib.DrawRectangleLines((int)Left, (int)Top, (int)Width, (int)Height, Color.PINK);
+            Raylib.DrawCube(new System.Numerics.Vector3(Owner.WorldPosistion.X, Owner.WorldPosistion.Y, Owner.WorldPosistion.Z), 5, 5, 5, Color.BROWN);
         }
 
         public override bool CheckCollisionCircle(CircleCollider other)

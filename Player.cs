@@ -16,6 +16,7 @@ namespace MathForGames
         private bool _ifTimeTrue;
         private Vector3 _velocity;
         public Scene _scene;
+        
         public float Speed
         {
             get { return _speed; }
@@ -67,8 +68,8 @@ namespace MathForGames
             Vector3 moveDirection = new Vector3(xDiretion, yDiretion , zDiretion);
 
 
-            int _scaleUp = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_Z));
-            int _scaleDown = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_X));
+            float _scaleUp = .50f;
+            float _scaleDown = 1.50f;
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Z))
             {
@@ -114,6 +115,7 @@ namespace MathForGames
 
 
             }
+
         }
 
         /// <summary>

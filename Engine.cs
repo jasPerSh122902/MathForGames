@@ -84,10 +84,14 @@ namespace MathForGames
 
             _stopwatch.Start();
 
+            InitializeActor();
 
+            _scenes[_currentSceneIndex].Start();
 
-            //prevously made a function to hold the actors and players to make...
-            //the Start function smaller
+        }
+
+        private void InitializeActor()
+        {
             Scene scene = new Scene();
 
             Player player = new Player(5, 5, 10, 10, "Player", Shape.CUBE);
@@ -99,25 +103,30 @@ namespace MathForGames
             Actor actor1 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
             Actor actor2 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
             Actor actor3 = new Actor(0, 0, 1, 0, "Actor2", Shape.CUBE);
-            Actor actor4 = new Actor(0, 1, 0, 0, "Actor3", Shape.CUBE);
+            Actor actor4 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
+
 
             player.AddChild(actor1);
+            player.AddChild(actor4);
             actor1.AddChild(actor2);
             actor1.AddChild(actor3);
 
             player.SetScale(5, 3, 5);
             player.SetTranslation(0, 0, 0);
             player.SetColor(new Vector4(255, 0, 255, 255));
-            
+
 
             actor1.SetScale(.75f, .75f, 1);
-            actor1.SetColor(new Vector4(200,0,255,255));
+            actor1.SetColor(new Vector4(200, 0, 255, 255));
 
             actor2.SetScale(.50f, .50f, 1);
             actor2.SetColor(new Vector4(200, 100, 255, 255));
 
-            actor3.SetScale (.50f, 1, 1);
+            actor3.SetScale(.50f, 1, 1);
             actor3.SetColor(new Vector4(200, 50, 255, 255));
+
+            actor4.SetScale(.050f, .050f, .050f);
+            actor4.SetColor(new Vector4(200, 50, 255, 255));
 
             enemey1.SetScale(5, 3, 5);
             enemey1.SetTranslation(0, 0, 0);
@@ -127,17 +136,14 @@ namespace MathForGames
             scene.AddActor(actor1);
             scene.AddActor(actor2);
             scene.AddActor(actor3);
+            scene.AddActor(actor4);
 
             //adds the collision to the player
             CircleCollider playerCollider = new CircleCollider(5, player);
             AABBCollider playerBoxCollider = new AABBCollider(34, 42, player);
 
             //adds the collsion to the enemy
-
             _currentSceneIndex = AddScene(scene);
-
-            _scenes[_currentSceneIndex].Start();
-
         }
 
         /// <summary>

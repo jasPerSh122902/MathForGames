@@ -301,6 +301,14 @@ namespace MathForGames
             _started = true;
         }
 
+        public void RotateCertainActor()
+        {
+            if(Name == "Actor3")
+            {
+                Rotate(_localPosistion, 1, 1);
+            }
+        }
+
         /// <summary>
         /// Updtated the position for the actor
         /// </summary>
@@ -309,6 +317,7 @@ namespace MathForGames
         {
             
             UpdateTransform();
+            RotateCertainActor();
             Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y);
         }
 
