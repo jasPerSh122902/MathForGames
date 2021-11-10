@@ -67,6 +67,20 @@ namespace MathForGames
             Vector3 moveDirection = new Vector3(xDiretion, yDiretion , zDiretion);
 
 
+            int _scaleUp = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_Z));
+            int _scaleDown = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_X));
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_Z))
+            {
+
+                Scale(_scaleUp, _scaleUp, _scaleUp);
+            }
+
+            else if(Raylib.IsKeyDown(KeyboardKey.KEY_X))
+            {
+                Scale(_scaleDown, _scaleDown, _scaleDown);
+
+            }
 
             //gets the palyers input direction for the shoot by using arrow key
             int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))

@@ -307,7 +307,7 @@ namespace MathForGames
         /// <param name="deltaTime"></param>
         public virtual void Update(float deltaTime)
         {
-
+            
             UpdateTransform();
             Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y);
         }
@@ -457,6 +457,7 @@ namespace MathForGames
             //new X axis as a Vector3
             Vector3 newXAxis = new Vector3(1, 0, 0);
 
+
             //if the direction vector is parallel to the alignAxis vector...
             if (Math.Abs(direction.Y) > 0 && direction.X == 0 && direction.Z == 0)
             {
@@ -487,6 +488,7 @@ namespace MathForGames
                 //normalizes the distince to prevent the matrix from being scaled
                 newYAxis.Normalize();
             }
+
 
             //rotaties the curretn Matrix4 on all values other than the W
             _rotation = new Matrix4(newXAxis.X, newYAxis.X, direction.X, 0,
