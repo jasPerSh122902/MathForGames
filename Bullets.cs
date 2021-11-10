@@ -56,7 +56,7 @@ namespace MathForGames
         {
             _stopwatch.Start();
         }
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
             float currentTime = _stopwatch.ElapsedMilliseconds;
             Bullet bullet = new Bullet();
@@ -74,7 +74,7 @@ namespace MathForGames
             LocalPosistion += _velocity;
         }
 
-        public override void OnCollision(Actor actor)
+        public override void OnCollision(Actor actor, Scene currentScene)
         {
             if (actor is Enemey)
             {

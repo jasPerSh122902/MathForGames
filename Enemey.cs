@@ -44,7 +44,7 @@ namespace MathForGames
             health = 1;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
             //Create a vector tht stores the move input
             Vector3 moveDirection = new Vector3();
@@ -57,7 +57,7 @@ namespace MathForGames
             if (GetTargetInSight())
                 LocalPosistion += Velocity;
 
-            base.Update(deltaTime);
+            base.Update(deltaTime, currentScene);
 
 
         }

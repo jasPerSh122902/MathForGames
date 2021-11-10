@@ -16,7 +16,7 @@ namespace MathForGames
     {
 
         private string _name;
-        private Vector2 _localPosistion;
+        private Vector3 _localPosistion;
         //made started a bool so we can see if actors is there or not.
         private bool _started;
         private float _speed;
@@ -301,23 +301,14 @@ namespace MathForGames
             _started = true;
         }
 
-        public void RotateCertainActor()
-        {
-            if(Name == "Actor3")
-            {
-                Rotate(_localPosistion, 1, 1);
-            }
-        }
-
         /// <summary>
         /// Updtated the position for the actor
         /// </summary>
         /// <param name="deltaTime"></param>
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
             
             UpdateTransform();
-            RotateCertainActor();
             Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y);
         }
 
@@ -355,7 +346,7 @@ namespace MathForGames
         /// <summary>
         /// Startes when the player hits a target.
         /// </summary>
-        public virtual void OnCollision(Actor actor)
+        public virtual void OnCollision(Actor actor, Scene currentScene)
         {
 
         }

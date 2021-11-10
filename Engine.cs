@@ -151,11 +151,13 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            _scenes[_currentSceneIndex].Update(deltaTime);
+            _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
 
             _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 10, _cameraPlayer.WorldPosistion.Z + 10);
             // Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y, _cameraPlayer.WorldPosistion.Z);
+
+            
 
             while (Console.KeyAvailable)
                 Console.ReadKey(true);

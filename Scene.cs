@@ -30,14 +30,14 @@ namespace MathForGames
         /// <summary>
         /// calls the update for the actors in the actors array
         /// </summary>
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
             for (int i = 0; i < _actors.Length; i++)
             {
                 if (!_actors[i].Started)
                     _actors[i].Start();
 
-                _actors[i].Update(deltaTime);
+                _actors[i].Update(deltaTime, currentScene);
 
                 //incremtns thorgh the actors array
                 for (int j = 0; j < _actors.Length; j++)
@@ -46,7 +46,7 @@ namespace MathForGames
                     //position but at the end it sais if actor 2 is actor 1...
                     if (_actors[i].CheckForCollision(_actors[j]) && j != i)
                         //then start on Collision for actor 1 by making actor 2 be collied with.
-                        _actors[i].OnCollision(_actors[j]);
+                        _actors[i].OnCollision(_actors[j], currentScene);
                 }
             }
         }

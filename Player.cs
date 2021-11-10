@@ -12,8 +12,7 @@ namespace MathForGames
     {
         private float _speed;
         private int _health = 5;
-        private float _cooldownTimer;
-        private bool _ifTimeTrue;
+        private float _timer = 0;
         private Vector3 _velocity;
         public Scene _scene;
         
@@ -51,10 +50,8 @@ namespace MathForGames
         /// Updates the players infromation on the screen and console.
         /// </summary>
         /// <param name="deltaTime"></param>
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
-
-            _cooldownTimer += deltaTime;
 
             //get the player input direction
             int xDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
@@ -63,25 +60,17 @@ namespace MathForGames
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_S));
             int yDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_SPACE));
                 
-
-            //Create a vector tht stores the move input
-            Vector3 moveDirection = new Vector3(xDiretion, yDiretion , zDiretion);
-
+    
 
             float _scaleUp = .50f;
             float _scaleDown = 1.50f;
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Z))
-            {
-
                 Scale(_scaleUp, _scaleUp, _scaleUp);
-            }
 
             else if(Raylib.IsKeyDown(KeyboardKey.KEY_X))
-            {
                 Scale(_scaleDown, _scaleDown, _scaleDown);
 
-            }
 
             //gets the palyers input direction for the shoot by using arrow key
             int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
@@ -90,39 +79,44 @@ namespace MathForGames
             int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
 
+            _timer += deltaTime;
 
-            //caculates the veclocity 
-            Velocity = moveDirection * Speed * deltaTime;
-
-            LocalPosistion += Velocity;
-            base.Update(deltaTime);
-
-            //takes ina direction and set sets a timer
+            //takes in a direction and set sets a timer
             //if cooldowntimer is less than .05 then spawn if not then no spawn
-            if ((xDirectionBullet != 0  || yDirectionBullet != 0  || zDirectionBullet != 0 ))
+            if ((xDirectionBullet != 0 && _timer >= .5 || zDirectionBullet != 0 && _timer >= .5))
             {
                 //the bullet instence
                 //changed the posision to localPosistion
-                Bullet bullet = new Bullet(LocalPosistion, 100, xDirectionBullet, zDirectionBullet, yDirectionBullet, "Bullet", Shape.SPHERE);
+                Bullet bullet = new Bullet(LocalPosistion.X, LocalPosistion.Y, LocalPosistion.Z, xDirectionBullet, zDirectionBullet, 10, "Bullet", Shape.SPHERE);
+                bullet.SetScale(.5f, .5f, .5f);
+                bullet.SetColor(new Vector4(16, 23, 19, 255));
+                currentScene.AddActor(bullet);
 
                 //spawns the collider
                 CircleCollider BulletCollider = new CircleCollider(1, bullet);
                 //sets the collider
                 bullet.Collider = BulletCollider;
-                //addes the actor bullet to the scene
-                //error of null
-                _scene.AddActor(bullet);
+                
 
-
+                _timer = 0;
             }
 
+            //Create a vector tht stores the move input
+            Vector3 moveDirection = new Vector3(xDiretion, yDiretion, zDiretion);
+
+            //caculates the veclocity 
+            Velocity = moveDirection * Speed * deltaTime;
+
+            LocalPosistion += Velocity;
+
+            base.Update(deltaTime, currentScene);
         }
 
         /// <summary>
         /// uses the collider on the current actor
         /// </summary>
         /// <param name="actor"></param>
-        public override void OnCollision(Actor actor)
+        public override void OnCollision(Actor actor, Scene currentScene)
         {
             //if actor is touched by teh enenmy end the game
             if (actor is Enemey)
