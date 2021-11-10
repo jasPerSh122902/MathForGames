@@ -10,20 +10,21 @@ namespace MathForGames
     class Bullet : Actor
     {
         private float _speed;
-        private int _xDirection;
-        private int _yDirection;
-        private int _zDirection;
         private Vector3 _velocity;
         private Vector3 _moveDirection;
         private float _collisionRaidus;
         private Scene _scene;
-        private float _cooldownTimer;
-        private float _lastTime;
-        Stopwatch _stopwatch = new Stopwatch();
+        private float _timer = 0;
 
         public float Speed
         {
             get { return _speed; }
+        }
+
+        public Vector3 Velocity
+        {
+            get { return _velocity; }
+            set { _velocity = value; }
         }
 
         public Bullet()
@@ -42,36 +43,34 @@ namespace MathForGames
         /// <param name="CollisionRadius"></param>
         /// <param name="yDirection"></param>
         /// <param name="name"></param>
-        public Bullet(Vector3 posistion, float speed, int xDirection, int yDirection, int zDirection, string name = "Bullet", Shape shape = Shape.CUBE)
+        public Bullet(Vector3 posistion, float velocityX, float velocityZ, float speed,string name = "Bullet", Shape shape = Shape.CUBE)
             : base(posistion, name)
         {
             _speed = speed;
-            _xDirection = xDirection;
-            _yDirection = yDirection;
-            _zDirection = zDirection;
+            _velocity.X = velocityX;
+            _velocity.Z = velocityZ;
 
         }
 
-        public override void Start()
-        {
-            _stopwatch.Start();
-        }
         public override void Update(float deltaTime, Scene currentScene)
         {
-            float currentTime = _stopwatch.ElapsedMilliseconds;
-            Bullet bullet = new Bullet();
 
-            if (_lastTime > .50f)
-            {
-                _scene.RemoveActor(bullet);
-            }
-            if (_cooldownTimer >= currentTime)
-            {
-                _lastTime = currentTime;
-            }
-            _moveDirection = new Vector3(_xDirection, _yDirection, _zDirection);
-            _velocity = _moveDirection * Speed * deltaTime;
+            _moveDirection = new Vector3(Velocity.X, Velocity.Y, Velocity.Z);
+
+            _velocity = _moveDirection.Normalized * Speed * deltaTime;
+
             LocalPosistion += _velocity;
+
+            base.Update(deltaTime, currentScene);
+
+            _timer += deltaTime;
+
+            if (_timer > 3)
+            {
+                currentScene.RemoveActor(this);
+            }
+
+            
         }
 
         public override void OnCollision(Actor actor, Scene currentScene)
@@ -82,6 +81,11 @@ namespace MathForGames
                 //The romove actor dos not work right now
                 //scene.RemoveActor(actor);
             }
+        }
+        public override void Draw()
+        {
+            base.Draw();
+            Collider.Draw();
         }
     }
 }

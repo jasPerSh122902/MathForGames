@@ -34,6 +34,11 @@ namespace MathForGames
             set { _health = value; }
         }
 
+        public Player()
+        {
+
+        }
+
         public Player(float x, float y, float z, float speed, string name = "Player", Shape shape = Shape.CUBE)
             : base(x, y, z, speed, name, shape)
         {
@@ -75,7 +80,6 @@ namespace MathForGames
             //gets the palyers input direction for the shoot by using arrow key
             int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
-            int yDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_P));
             int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
 
@@ -87,7 +91,7 @@ namespace MathForGames
             {
                 //the bullet instence
                 //changed the posision to localPosistion
-                Bullet bullet = new Bullet(LocalPosistion.X, LocalPosistion.Y, LocalPosistion.Z, xDirectionBullet, zDirectionBullet, 10, "Bullet", Shape.SPHERE);
+                Bullet bullet = new Bullet(LocalPosistion, xDirectionBullet,zDirectionBullet, 10, "Bullet", Shape.SPHERE);
                 bullet.SetScale(.5f, .5f, .5f);
                 bullet.SetColor(new Vector4(16, 23, 19, 255));
                 currentScene.AddActor(bullet);
@@ -102,10 +106,10 @@ namespace MathForGames
             }
 
             //Create a vector tht stores the move input
-            Vector3 moveDirection = new Vector3(xDiretion, yDiretion, zDiretion);
+            Vector3 moveDirection = new Vector3(xDiretion,0, zDiretion);
 
             //caculates the veclocity 
-            Velocity = moveDirection * Speed * deltaTime;
+            Velocity = moveDirection.Normalized * Speed * deltaTime;
 
             LocalPosistion += Velocity;
 

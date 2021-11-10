@@ -42,11 +42,15 @@ namespace MathForGames
                 //incremtns thorgh the actors array
                 for (int j = 0; j < _actors.Length; j++)
                 {
-                    //sees if the position of the actor 1 and actor 2 are on the same...
-                    //position but at the end it sais if actor 2 is actor 1...
-                    if (_actors[i].CheckForCollision(_actors[j]) && j != i)
-                        //then start on Collision for actor 1 by making actor 2 be collied with.
-                        _actors[i].OnCollision(_actors[j], currentScene);
+                    if(i < _actors.Length)
+                    {
+                        //sees if the position of the actor 1 and actor 2 are on the same...
+                        //position but at the end it sais if actor 2 is actor 1...
+                        if (_actors[i].CheckForCollision(_actors[j]) && j != i)
+                            //then start on Collision for actor 1 by making actor 2 be collied with.
+                            _actors[i].OnCollision(_actors[j], currentScene);
+                    }
+                  
                 }
             }
         }
