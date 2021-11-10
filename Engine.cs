@@ -18,6 +18,8 @@ namespace MathForGames
         private Player _cameraPlayer;
 
 
+
+
         /// <summary>
         /// is the call to start the application
         /// </summary>
@@ -58,7 +60,7 @@ namespace MathForGames
         private void InitializeCamera()
         {
             // Camera position
-            _camera.position = new System.Numerics.Vector3(10, 10, 0);
+            _camera.position = new System.Numerics.Vector3(15, 15, 5);
             //Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(0, 0, 0);
             //Camera up vector (roation towards target)
@@ -94,24 +96,24 @@ namespace MathForGames
         {
             Scene scene = new Scene();
 
-            Player player = new Player(5, 5, 10, 10, "Player", Shape.CUBE);
+
+            //This is all player
+            Player player = new Player(5, 5, 10, 50, "Player1", Shape.CUBE);
             _cameraPlayer = player;
 
 
-            Enemey enemey1 = new Enemey(10, 1, 10, 10, 4, player, "Enemy1", Shape.SPHERE);
+            
 
             Actor actor1 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
             Actor actor2 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
-            Actor actor3 = new Actor(0, 0, 1, 0, "Actor2", Shape.CUBE);
             Actor actor4 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
 
 
             player.AddChild(actor1);
             player.AddChild(actor4);
             actor1.AddChild(actor2);
-            actor1.AddChild(actor3);
 
-            player.SetScale(5, 3, 5);
+            player.SetScale(10, 3, 10);
             player.SetTranslation(0, 0, 0);
             player.SetColor(new Vector4(255, 0, 255, 255));
 
@@ -122,29 +124,69 @@ namespace MathForGames
             actor2.SetScale(.50f, .50f, 1);
             actor2.SetColor(new Vector4(200, 100, 255, 255));
 
-            actor3.SetScale(.50f, 1, 1);
-            actor3.SetColor(new Vector4(200, 50, 255, 255));
 
             actor4.SetScale(.050f, .050f, .050f);
             actor4.SetColor(new Vector4(200, 50, 255, 255));
-
-            enemey1.SetScale(5, 3, 5);
-            enemey1.SetTranslation(0, 0, 0);
 
             scene.AddActor(player);
             //scene.AddActor(enemey1);
             scene.AddActor(actor1);
             scene.AddActor(actor2);
-            scene.AddActor(actor3);
             scene.AddActor(actor4);
 
             //adds the collision to the player
             CircleCollider playerCollider = new CircleCollider(5, player);
             AABBCollider playerBoxCollider = new AABBCollider(34, 42, player);
 
+            Enemey enemey1 = new Enemey(10, 1, 10, 30, 20, player, "Enemy1", Shape.SPHERE);
+            enemey1.SetScale(5, 3, 5);
+            enemey1.SetTranslation(-10, 1, -15);
+            enemey1.LookAt(player.WorldPosistion);
+            enemey1.SetColor(new Vector4(255, 0, 255, 255));
+            scene.AddActor(enemey1);
+
+            //This is all player
+            Player player2 = new Player(10, 5, 20, 50, "Player2", Shape.CUBE);
+
+
+
+
+            Actor actor5 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
+            Actor actor6 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
+            Actor actor8 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
+
+            player2.AddChild(actor5);
+            player2.AddChild(actor6);
+            actor6.AddChild(actor8);
+
+            player2.SetScale(10, 3, 10);
+            player2.SetTranslation(20, 0, -20);
+            player2.SetColor(new Vector4(255, 0, 50, 255));
+
+
+            actor5.SetScale(.75f, .75f, 1);
+            actor5.SetColor(new Vector4(200, 0, 255, 255));
+
+            actor6.SetScale(.50f, .50f, 1);
+            actor6.SetColor(new Vector4(200, 100, 255, 255));
+
+            actor8.SetScale(.050f, .050f, .050f);
+            actor8.SetColor(new Vector4(200, 50, 255, 255));
+
+            scene.AddActor(player2);
+            scene.AddActor(actor5);
+            scene.AddActor(actor6);
+            scene.AddActor(actor8);
+
+            //adds the collision to the player
+            CircleCollider player2Collider = new CircleCollider(5, player2);
+            AABBCollider player2BoxCollider = new AABBCollider(34, 42, player2);
+
             //adds the collsion to the enemy
             _currentSceneIndex = AddScene(scene);
         }
+
+
 
         /// <summary>
         /// Updates the Engine when it is called
@@ -153,11 +195,10 @@ namespace MathForGames
         {
             _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
 
-            _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 10, _cameraPlayer.WorldPosistion.Z + 10);
+            _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 40, _cameraPlayer.WorldPosistion.Z + 40);
             // Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y, _cameraPlayer.WorldPosistion.Z);
 
-            
 
             while (Console.KeyAvailable)
                 Console.ReadKey(true);
@@ -172,7 +213,7 @@ namespace MathForGames
             Raylib.BeginMode3D(_camera);
 
             Raylib.ClearBackground(Color.DARKGREEN);
-            Raylib.DrawGrid(50, 1);
+            Raylib.DrawGrid(500, 10);
 
 
             //add all of the icons back to the buffer

@@ -50,6 +50,7 @@ namespace MathForGames
             _velocity.X = velocityX;
             _velocity.Z = velocityZ;
 
+
         }
 
         public override void Update(float deltaTime, Scene currentScene)
@@ -65,9 +66,10 @@ namespace MathForGames
 
             _timer += deltaTime;
 
-            if (_timer > 3)
+            
+            if (_timer >= 3)
             {
-                currentScene.RemoveActor(this);
+                //currentScene.RemoveActor(this);
             }
 
             
