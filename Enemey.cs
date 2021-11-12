@@ -88,7 +88,7 @@ namespace MathForGames
             {
                 _health--;
                 Console.WriteLine("o2iakjdflaskjdflaskdjflaskjdf");
-                if (_health <= 0)
+                if (Health <= 0)
                 {
                     currentScene.RemoveActor(this);  
                 }
