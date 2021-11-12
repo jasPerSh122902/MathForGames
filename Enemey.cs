@@ -88,9 +88,9 @@ namespace MathForGames
             {
                 _health--;
                 Console.WriteLine("o2iakjdflaskjdflaskdjflaskjdf");
-                if (_health == 0)
+                if (_health <= 0)
                 {
-                    //currentScene.RemoveActor(this);  
+                    currentScene.RemoveActor(this);  
                 }
             }
         }
