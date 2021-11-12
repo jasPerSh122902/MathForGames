@@ -69,7 +69,6 @@ namespace MathForGames
                     + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_S));
 
 
-
                 float _scaleUp = .50f;
                 float _scaleDown = 1.50f;
 

@@ -151,16 +151,21 @@ namespace MathForGames
 
             player.Collider = playerBoxCollider;
 
-            Enemey enemey1 = new Enemey(10, 1, 10, 30, 2, player, "Enemy1", Shape.SPHERE);
+
+
+            Enemey enemey1 = new Enemey(40, 1, 40, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey1.SetScale(5, 3, 5);
             enemey1.SetTranslation(-10, 1, -15);
             enemey1.LookAt(player.WorldPosistion);
             enemey1.SetColor(new Vector4(255, 0, 255, 255));
 
 
+
             CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
             AABBCollider enemyBoxCollider = new AABBCollider(34, 42,44, enemey1);
             enemey1.Collider = enemyCircleCollider;
+
+            EnemySpawner enemySpawner1 = new EnemySpawner(new Vector3(40, 1, 20), enemey1, Shape.CUBE);
 
             //This is all player
             Player player2 = new Player(10, 5, 20, 50, 10, "Player2", Shape.CUBE);
@@ -191,7 +196,7 @@ namespace MathForGames
             scene.AddActor(actor5);
             scene.AddActor(actor6);
             scene.AddActor(actor8);
-            scene.AddActor(enemey1);
+            scene.AddActor(enemySpawner1);
 
             //adds the collision to the player
             CircleCollider player2Collider = new CircleCollider(5, player2);

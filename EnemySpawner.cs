@@ -21,7 +21,11 @@ namespace MathForGames
         {
 
         }
-       
+
+        public EnemySpawner(Vector3 position, Enemey enemey, Shape shape = Shape.CUBE)
+        {
+
+        }
 
         private void InitralizeEnemy()
         {
