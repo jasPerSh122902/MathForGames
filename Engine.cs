@@ -196,7 +196,11 @@ namespace MathForGames
             scene.AddActor(actor5);
             scene.AddActor(actor6);
             scene.AddActor(actor8);
-            scene.AddActor(enemySpawner1);
+            
+            for (int i = 0; i < Spawns; i++)
+            {
+
+            }
 
             //adds the collision to the player
             CircleCollider player2Collider = new CircleCollider(5, player2);
