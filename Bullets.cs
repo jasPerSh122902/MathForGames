@@ -67,8 +67,12 @@ namespace MathForGames
             _timer += deltaTime;
 
             
-            //if (_timer >= 3)
-                //currentScene.RemoveActor(this);
+            if (_timer >= 3)
+            {
+                currentScene.RemoveActor(this);
+                _timer = 0;
+            }
+                
 
         }
 
@@ -78,6 +82,13 @@ namespace MathForGames
             {
                 currentScene.RemoveActor(this);
             }
+
+            if (actor.Name == "Player2")
+            {
+                _velocity *= .50f;
+                LocalPosistion += _velocity;
+            }
+
         }
         public override void Draw()
         {

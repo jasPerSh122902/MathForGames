@@ -340,7 +340,7 @@ namespace MathForGames
         /// </summary>
         public void End()
         {
-
+            
         }
 
         /// <summary>

@@ -32,8 +32,8 @@ namespace MathForGames
 
         public float Lenght
         {
-            get { return _height; }
-            set { _height = value; }
+            get { return _lenght; }
+            set { _lenght = value; }
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.Y + -(Height / 2);
+                return Owner.LocalPosistion.Y  + -(Height / 2);
             }
         }
 
@@ -84,7 +84,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.Y + (Lenght / 2);
+                return Owner.LocalPosistion.Y + -(Lenght / 2);
             }
         }
 
@@ -102,10 +102,11 @@ namespace MathForGames
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="owner"></param>
-        public AABBCollider(float width, float height, Actor owner) : base(owner, ColliderType.AABB)
+        public AABBCollider(float width, float height,float length, Actor owner) : base(owner, ColliderType.AABB)
         {
             _width = width;
             _height = height;
+            _lenght = length;
         }
 
         public override bool CheckCollisionAABB(AABBCollider other)
@@ -118,11 +119,11 @@ namespace MathForGames
             //... The last two is to check if the main object is lest than the second object.
             //Return true if There is an overlap between boxes.
             if (other.Left <= Right &&
-                other.Top <= Bottom &&
-                Left <= other.Right &&
-                Top <= other.Bottom &&
-                Front <= other.Back &&
-               Back <= other.Front)
+               other.Top <= Bottom &&
+               Left <= other.Right &&
+               Top <= other.Bottom &&
+               other.Front <= Back &&
+               Front <= other.Back)
             {
                 return true;
             }
@@ -137,6 +138,13 @@ namespace MathForGames
         {
             //is meant to draw the collider that is the rectangle
             Raylib.DrawCube(new System.Numerics.Vector3(Owner.WorldPosistion.X, Owner.WorldPosistion.Y, Owner.WorldPosistion.Z), 5, 5, 5, Color.BROWN);
+        }
+
+        public override void Update()
+        {
+            _height = Owner.Size.X;
+            _width = Owner.Size.Y;
+            _lenght = Owner.Size.Z;
         }
 
         public override bool CheckCollisionCircle(CircleCollider other)

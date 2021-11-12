@@ -16,6 +16,7 @@ namespace MathForGames
         private Stopwatch _stopwatch = new Stopwatch();
         private Camera3D _camera = new Camera3D();
         private Player _cameraPlayer;
+        private Player _player;
 
 
 
@@ -64,7 +65,7 @@ namespace MathForGames
             //Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(0, 0, 0);
             //Camera up vector (roation towards target)
-            _camera.up = new System.Numerics.Vector3(0, 5, 0);
+            _camera.up = new System.Numerics.Vector3(0, 10, 0);
             // The point of view of the camera
             _camera.fovy = 90;
             //Camera mode type
@@ -92,13 +93,23 @@ namespace MathForGames
 
         }
 
+        /// <summary>
+        /// end the appliction 
+        /// </summary>
+        private void End()
+        {
+            _scenes[_currentSceneIndex].End();
+            Raylib.CloseWindow();
+        }
+
+
         private void InitializeActor()
         {
             Scene scene = new Scene();
 
 
             //This is all player
-            Player player = new Player(5, 5, 10, 50, "Player1", Shape.CUBE);
+            Player player = new Player(5, 5, 10, 50,10, "Player1", Shape.CUBE);
             _cameraPlayer = player;
 
 
@@ -136,7 +147,7 @@ namespace MathForGames
 
             //adds the collision to the player
             CircleCollider playerCollider = new CircleCollider(5, player);
-            AABBCollider playerBoxCollider = new AABBCollider(34, 42, player);
+            AABBCollider playerBoxCollider = new AABBCollider(34, 42,44, player);
 
             player.Collider = playerBoxCollider;
 
@@ -145,17 +156,14 @@ namespace MathForGames
             enemey1.SetTranslation(-10, 1, -15);
             enemey1.LookAt(player.WorldPosistion);
             enemey1.SetColor(new Vector4(255, 0, 255, 255));
-            scene.AddActor(enemey1);
+
 
             CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
-            AABBCollider enemyBoxCollider = new AABBCollider(34, 42, enemey1);
-            enemey1.Collider = enemyBoxCollider;
+            AABBCollider enemyBoxCollider = new AABBCollider(34, 42,44, enemey1);
+            enemey1.Collider = enemyCircleCollider;
 
             //This is all player
-            Player player2 = new Player(10, 5, 20, 50, "Player2", Shape.CUBE);
-
-
-
+            Player player2 = new Player(10, 5, 20, 50, 10, "Player2", Shape.CUBE);
 
             Actor actor5 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
             Actor actor6 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
@@ -183,10 +191,11 @@ namespace MathForGames
             scene.AddActor(actor5);
             scene.AddActor(actor6);
             scene.AddActor(actor8);
+            scene.AddActor(enemey1);
 
             //adds the collision to the player
             CircleCollider player2Collider = new CircleCollider(5, player2);
-            AABBCollider player2BoxCollider = new AABBCollider(34, 42, player2);
+            AABBCollider player2BoxCollider = new AABBCollider(34, 42,44, player2);
             player2.Collider = playerBoxCollider;
 
             UIText Ui = new UIText(0, 10,10, "Health", Color.DARKBLUE,0,150, 80, 30, "Player 1 Health " + player.Health);
@@ -212,6 +221,7 @@ namespace MathForGames
             _camera.target = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y, _cameraPlayer.WorldPosistion.Z);
 
             _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
+
 
             while (Console.KeyAvailable)
                 Console.ReadKey(true);
@@ -242,14 +252,7 @@ namespace MathForGames
         }
 
 
-        /// <summary>
-        /// end the appliction 
-        /// </summary>
-        private void End()
-        {
-            _scenes[_currentSceneIndex].End();
-            Raylib.CloseWindow();
-        }
+ 
 
         /// <summary>
         /// Creats a array that is teparay then adds all the old arrays vaules to it..

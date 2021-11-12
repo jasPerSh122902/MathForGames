@@ -86,12 +86,13 @@ namespace MathForGames
         {
             if (actor is Bullet)
             {
-                _health--;
-                if (_health == 0)
+                Health--;
+                if (Health <= 0)
                 {
                     currentScene.RemoveActor(this);  
                 }
             }
+           
         }
 
         public override void Draw()

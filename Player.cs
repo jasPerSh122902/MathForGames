@@ -15,8 +15,8 @@ namespace MathForGames
         private float _timer = 0;
         private Vector3 _velocity;
         public Scene _scene;
-        
-        public float Speed
+
+    public float Speed
         {
             get { return _speed; }
             set { _speed = value; }
@@ -39,10 +39,11 @@ namespace MathForGames
 
         }
 
-        public Player(float x, float y, float z, float speed, string name = "Player", Shape shape = Shape.CUBE)
+        public Player(float x, float y, float z, float speed, int health, string name = "Player", Shape shape = Shape.CUBE)
             : base(x, y, z, speed, name, shape)
         {
             _speed = speed;
+            _health = health;
         }
 
 
@@ -174,6 +175,9 @@ namespace MathForGames
 
                 LocalPosistion += Velocity;
 
+                if (_health <= 0)
+                    currentScene.End();
+
                 base.Update(deltaTime, currentScene);
             }
 
@@ -188,16 +192,17 @@ namespace MathForGames
             //if actor is touched by teh enenmy end the game
             if (actor is Enemey)
             {
-                _velocity *= .50f;
-                LocalPosistion += _velocity;
-                _health--;
+                Console.WriteLine("alksdjflaksdjflaksjdf");
+                Health--;
+
+                if (Health <= 0)
+                    Raylib.CloseWindow();
+                    
             }
 
             if (actor is Bullet)
             {
-                _health--;
-                _velocity *= .50f;
-                LocalPosistion += _velocity;
+                Health--;
             }
         }
 
