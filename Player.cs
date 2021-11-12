@@ -80,10 +80,10 @@ namespace MathForGames
 
 
                 //gets the palyers input direction for the shoot by using arrow key
-                int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
-                       + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
-                int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
+                int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_G))
+                       + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_J));
+                int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_Y))
+                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_H));
 
                 _timer += deltaTime;
 
@@ -139,10 +139,10 @@ namespace MathForGames
 
 
                 //gets the palyers input direction for the shoot by using arrow key
-                int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_KP_4))
-                       + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_KP_6));
-                int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_KP_8))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_KP_2));
+                int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+                       + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
+                int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
+                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
 
                 _timer += deltaTime;
 

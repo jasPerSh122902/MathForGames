@@ -76,7 +76,6 @@ namespace MathForGames
         {
             if (actor is Enemey)
             {
-                Console.WriteLine("alskdjfalksdjflaskfjalsdkjfalsdkjfalsdkfjalsdkfjalsdkfjasldkjfalskdjf");
                 currentScene.RemoveActor(this);
             }
         }

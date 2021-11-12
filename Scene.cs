@@ -136,10 +136,8 @@ namespace MathForGames
             int j = 0;
 
             //incremens through the temArray
-            for (int i = 0; i < temArray.Length; i++)
+            for (int i = 0; i < _actors.Length; i++)
             {
-                if (i > temArray.Length)
-                    i--;
 
                 //sais that if actor is not equal to the actor that is choosen then dont go into but..
                 if (_actors[i] != actor)
