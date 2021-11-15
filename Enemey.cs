@@ -86,8 +86,9 @@ namespace MathForGames
         {
             if (actor is Bullet)
             {
+                Velocity *= -10;
+                LocalPosistion += Velocity;
                 Health--;
-
 
                 if (Health <= 0)
                 {

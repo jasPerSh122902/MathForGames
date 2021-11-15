@@ -161,6 +161,11 @@ namespace MathForGames
         {
             get { return new Vector3(_rotation.M02, _rotation.M12, _rotation.M22); }
             //need a vector 3 set for forward
+            set
+            {
+                Vector3 point = value.Normalized + WorldPosistion;
+                LookAt(point);
+            }
         }
 
         /// <summary>

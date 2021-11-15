@@ -16,7 +16,7 @@ namespace MathForGames
         private Vector3 _velocity;
         public Scene _scene;
 
-    public float Speed
+        public float Speed
         {
             get { return _speed; }
             set { _speed = value; }
@@ -63,8 +63,12 @@ namespace MathForGames
             + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_D));
             int zDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_W))
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_S));
+            int rotatingActor = Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_SPACE));
 
+            //rotates the player
+            Rotate(0, 10 * deltaTime, 0);
 
+            //is the float that scales the player
             float _scaleUp = .50f;
             float _scaleDown = 1.50f;
 
@@ -79,10 +83,10 @@ namespace MathForGames
 
 
             //gets the palyers input direction for the shoot by using arrow key
-            int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_G))
-                   + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_J));
-            int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_Y))
-                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_H));
+            int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+                   + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
+            int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
+                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
 
             _timer += deltaTime;
 
@@ -110,9 +114,10 @@ namespace MathForGames
 
             //caculates the veclocity 
             Velocity = moveDirection.Normalized * Speed * deltaTime;
-
+            //addes the velocity to the localPosistion
             LocalPosistion += Velocity;
 
+            //update
             base.Update(deltaTime, currentScene);
 
         }
@@ -124,24 +129,27 @@ namespace MathForGames
         public override void OnCollision(Actor actor, Scene currentScene)
         {
             //if actor is touched by teh enenmy end the game
-            if (actor is Enemey)
+            if (actor is Enemey && _timer > 1)
             {
+                //Get the velocity and multies
+                Velocity *= -10;
+                //addes the velocity to the localPossition
+                LocalPosistion += Velocity;
+                //decrement health
                 Health--;
 
+                //when you collide go orange
+                SetColor(Color.ORANGE);
                 //closes window when player dies
                 if (Health <= 0)
                 {
                     Engine.CloseApplication();
                 }
-                    
-                    
+
+                //reset time
+                _timer = 0;
             }
 
-            //if actor gits hit by bullet
-            if (actor is Bullet)
-            {
-                Health--;
-            }
         }
 
         /// <summary>

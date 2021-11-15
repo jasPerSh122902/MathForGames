@@ -13,6 +13,7 @@ namespace MathForGames
         private static bool _applicationShouldClose = false;
         private static int _currentSceneIndex;
         private Scene[] _scenes = new Scene[0];
+        private Scene theScene;
         private Stopwatch _stopwatch = new Stopwatch();
         private Camera3D _camera = new Camera3D();
         private Player _cameraPlayer;
@@ -108,15 +109,16 @@ namespace MathForGames
         {
             Scene scene = new Scene();
 
+            theScene = scene;
 
             //This is all player
             Player player = new Player(0, 5, 0, 50,5, "Player1", Shape.CUBE);
             _cameraPlayer = player;
-
+            _player = player;
             //are the actors on the player
             Actor actor1 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
             Actor actor2 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
-            Actor actor3 = new Actor(1, 1, 1, 0, "Actor2", Shape.CUBE);
+            Actor actor3 = new Actor(1, 0, 1, 0, "RActor", Shape.CUBE);
             Actor actor4 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
             
             //childs the actor to the respected player or actor
@@ -128,7 +130,6 @@ namespace MathForGames
             //sets the scale and translation/ color
             player.SetScale(10, 3, 10);
             player.SetTranslation(30, 0, 30);
-            player.Rotate(0, 3, 0);
             player.SetColor(new Vector4(255, 0, 255, 255));
 
             //sets the scale and translation/ color
@@ -142,7 +143,10 @@ namespace MathForGames
             //sets the scale and translation/ color
             actor3.SetScale(.50f, .50f, 1);
             actor3.SetColor(new Vector4(200, 100, 255, 255));
-            actor3.Rotate(player.LocalPosistion.X, 5, player.LocalPosistion.Z);
+
+            AABBCollider actor3BoxCollider = new AABBCollider(4, 4, 4, actor3);
+
+            actor3.Collider = actor3BoxCollider;
 
             //sets the scale and translation/ color
             actor4.SetScale(.050f, .050f, .050f);
@@ -197,14 +201,10 @@ namespace MathForGames
             AABBCollider enemy3BoxCollider = new AABBCollider(5, 5, 5, enemey3);
             enemey3.Collider = enemy3CircleCollider;
 
+            UIText Ui2 = new UIText(600, 10, 10, "Controls", Color.DARKBLUE, 0, 150, 80, 30, "Shrink Z Grow X");
+            scene.AddUIElement(Ui2);
             scene.AddActor(enemey3);
 
-            UIText Ui = new UIText(0, 10,10, "Health", Color.DARKBLUE,0,150, 80, 30, "Player 1 Health " + player.Health);
-            UIText Ui2 = new UIText(600, 10, 10, "Controls", Color.DARKBLUE, 0, 150, 80, 30, "Shrink Z Grow X" );
-
-            //adds the collsion to the enemy
-            scene.AddUIElement(Ui);
-            scene.AddUIElement(Ui2);
             _currentSceneIndex = AddScene(scene);
         }
 
@@ -215,6 +215,13 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
+
+
+            UIText Ui = new UIText(0, 10, 10, "Health", Color.DARKBLUE, 0, 150, 80, 30, "Player 1 Health " + _player.Health);
+
+            //adds the collsion to the enemy
+            theScene.AddUIElement(Ui);
+
 
             _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 40, _cameraPlayer.WorldPosistion.Z + 40);
             // Point the camera is focused on
