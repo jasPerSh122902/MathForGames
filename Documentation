@@ -292,3 +292,231 @@ The Collider.cs is meant to be a genaric class about the AABB and circle collide
 
 > $Name$ :  Update
 >>+ Description : is a empty update
+
+End of the Collider class.
+
+the enemy is a child of the  class that is meant to hold the enemys data like its health and other varables.
+
+># $File$ : Enmey.cs
+>> Description : a class that hold all the information tha actor did not need to know.
+
+> $Name$ : _speed (float)
+>> Description : is a holder for speed and reutns a value of speed
+
+> $Name$ : _Velocity (Vector3)
+>> Description : is the call for the vector3 
+
+> $Name$ : _player (Player)
+>> Description : is the call for player
+
+> $Name$ : _health (int)
+>> Description : is a holder for health and return a value of health.
+
+> $Name$ : _scene (Scene)
+>> Description : is a call for scene
+
+> $Name$ : Enemey(float x, float y, float z, float speed, int health, Player player, string name = "Enemy", Shape shape = Shape.CUBE)
+            : base(x, y, z, speed, name, shape)
+>> Description : is a constructor for the enemy
+
+> $Name$ :  Update(float deltaTime, Scene currentScene)
+>> Description : is the update for the enemy
+
+> $Name$ : GetTargetInSight()
+>> Description : gets the target in the sight of the enemy or actor this is done with angles.
+
+> $Name$ :  OnCollision(Actor actor, Scene currentScene)
+>> Description : Get the information what to do when collishion happends
+
+> $Name$ :  Draw
+>> Description : draws the enmey
+
+The end of the file enmey.cs
+
+The Engine is the main frame of all of the code and were everthing starts.
+
+> # $File$ : Engine.cs
+>> Description : Is the beging of all of the code and vehicle that drives it to work.
+
+> $Name$ : _applicationShouldClose (bool)
+>> Description : is a bool to close the appliction.
+
+> $Name$ : _currentSceneIndex (int)
+>> Description : keeps all of the scenes in a number value
+
+> $Name$ : _scenes (Scene)
+>> Description : the call for the scenes and is a new instence.
+
+> $Name$ :theScene (Scene)
+>> Description The call for scenes that is not meant to make a instence.
+
+> $Name$ : _stopWatch (shopWatch)
+>> Description : is a instence of stopWatch.
+
+> $Name$ : _camera (camera3D))
+>> Description : is a instence of camera.
+
+> $Name$ : _cameraplayer (player)
+>> Description : is a call for plaeyr that is named cameraPlayer
+
+> $Name$ : _player (player)
+>> Description : is a call for player
+
+> $Name$ : Run()
+>> Description : is where all of the code stats to begin and form.
+
+> $Name$ : InitializeCamera()
+>> Description : initializes the camera and sets its poisition  and perspective.
+
+> $Name$ : Start()
+>> Description : The Start is were all the function are that need to begin at the begining.
+
+> $Name$ : End()
+>> Description : is the end of the file or appliction
+
+> $Name$ : InitializeActor()
+>> Description : is a place to put all my actos and scenes so the start is not clogged with actors and scene.
+
+> $Name$ : Update(float deltaTime)
+>> Description : is the update for the engine
+
+> $Name$ : Draw()
+>> Description : Draws to the Raylib console. Draws to the screen
+
+> $Name$ : AddScene(Scene scene)
+>> Description : addes the scene to the scene array
+
+> $Name$ :  GetNewtKey(ConsoleKey)
+>> Description : Gets the key that is pressed
+
+> $Name$ : CloseApplication()
+>> Description : uses the _appliction Should Close varable.
+
+This is the end of the engine class
+
+The Player class is the class were all the information is. And Player is a child of actor.
+
+> # $File$ : Player.cs
+>> Description : A Class to give controls and other things that allow the person playering it to do things.
+
+> $Name$ : _speed
+>> Description : is the holder for speed values, and returns the value of speed
+
+> $Name$ : _health
+>> Description :  is the holder for health values, and returns the value of speed
+
+> $Name$ : _timer
+>> Description : is a holder to increase and decrease but is set to 0.
+
+> $Name$ : Velocity (Vector3)
+>> Description : Is the call for the vector3.
+
+> $Name$ : _scene (Scene)
+>> Description : is the call for Scene.
+
+> $Name$ : Player()
+>> Description : a empty constructor for player
+
+> $Name$ : Player(float x, float y, float z, float speed, int health, string name = "Player", Shape shape = Shape.CUBE)
+            : base(x, y, z, speed, name, shape)
+>> Description : is a more detailed constructor for player.
+
+> $Name$ : start()
+>> Description : is the start for plaeyr
+
+> $Name$ : Update(float deltaTime, Scene currentScene)
+>> Description : is the update for player.
+
+> $Name$ : OnCollision(Actor actor, Scene currentScene)
+>> Description : IS the information for the collision. 
+
+> $Name$ : Draw()
+>> Description : Draws to the Raylib window or console.
+
+This is the end of the player.cs file
+
+The Program.cs is the first part of the opening of the files
+
+> # $File$ : Program
+>> Description : is the being of engine. It is the start of engine.
+
+> $Name$ :Main(string[] args)
+>> Description : is to make eninge run.
+
+This is the end of the Program.cs file.
+
+The Scene.cs is the place all thing that deal with scene are.
+
+> # $File$ : Scene.cs
+>> Description : is the holder for all scenes.
+
+> $Name$ : _actors (Actor[])
+>> Description : is a array for actor.
+
+> $Name$ : _UIElements (Actor[])
+>> Description : is a array for UIElements
+
+> $Name$ : Scene()
+>> Description : is a constructor for the scene class that takes in the actors and the UI elements
+
+> $Name$ : Start()
+>> Description : is the start for scene.
+
+> $Name$ :  Update(float deltaTime, Scene currentScene)
+>> Description : is the update for the scene class that takes in a currentScene and a deltaTIme.
+
+> $Name$ : Draw()
+>> Description : Draw for the scene.
+
+> $Name$ :  UpdateUI(float deltatTime, Scene currentScene)
+>> Description : Updates the UI while using the currentScene and the deltaTie.
+
+> $Name$ :   DrawUI()
+>> Description : Draws the UI
+
+> $Name$ :   End()
+>> Description : the end for the scene class.
+
+> $Name$ :  AddActor(Actor actor)
+>> Description : Adds actor to the scene and takes in a actor.
+
+> $Name$ : RemoveActor(Actor actor)
+>> Description : removes actor to the scene and takes in a actor.
+
+> $Name$ :  AddUIElement(Actor UI)
+>> Description : Adds UI to the scene and takes in a UI.
+
+> $Name$ :   RemoveUIElement(Actor UI)
+>> Description : Removes UI to the scene and takes in a UI.
+
+This is the end of the Scene.cs file
+
+The UIText file is the file that hopes all the UI elemts
+
+># $File$ : UIText.cs
+>> Description : hold all the inforamtion that is the UI text.
+
+> $Name$ : _text (string)
+>> Description : is the text varable.
+
+> $Name$ : _width (int)
+>> Description : holds the value of the width.
+
+> $Name$ : _hieght (int)
+>> Description : holds the value of the height.
+
+> $Name$ : _speed (float)
+>> Description : holds the value of the speed.
+
+> $Name$ : _font (Font)
+>> Description : is the call for Font
+
+> $Name$ : _fontSize (int)
+>> Description : holds the value of the Font.
+
+> $Name$ :  UIText(float x, float y,float z, String name, Color color,float speed, int width, int height,int fontSize, string text = "")
+            : base( x, y, z, speed)
+>> Description : is the consturctor for the UI text
+
+> $Name$ : Draw()
+>> Description : is the draw for the UIText
