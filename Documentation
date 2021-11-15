@@ -1,0 +1,294 @@
+*MathForGames*
+
+This applictation is meant to be a test for the roation, translation on a 3D plane. 
+This applictation also uses the 4D vectors and 3D vectors.
+
+To open the appliction you will need to acsess the >>.exe<< files that is the activation file for the appliction.
+You will get the file in in a zip file and will come with it so you can start as fast a possible.
+The appliction will start and all you will see is your player and the enemy going to attack you .
+>>As said before this applictation is meant to be a test for the vector 3 and 4 while using the roation and translation.
+So the applictation is quite short.<<
+
+2.* Object infromation*
+
+ # $File$: $AABBCollider.cs$
+is meant to hold the information that is the AABBCollider
+information : (this will be reacurring information is meant to list the funcitons and some of the varables.)
+
+>+  $Name$ :  _width
+>>+ Description : is a float that is meant to hold the data of Z
+
+>+  $Name$ :  _height
+>>+ Description : is a float that is meant to hold the data of Y
+
+>+  $Name$ :  _lenght
+>>+ Description : is a float that is meant to hold the data of X
+
+>+  $Name$ : Left
+>> Description : Takes in the owners local posistion on the x and subtracts it with the width that was divided by 2.
+
+>+  $Name$ : Right
+> Description : Takes in the owners local posistion on the x and adds it with the width that was divided by 2.
+
+>+  $Name$ : top
+>> Description : Takes in the owners local posistion on the Y and subtracts it with the Heightthat was divided by 2.
+
+>+  $Name$ : dottom
+>> Description : Takes in the owners local posistion on the Y and adds it with the Height that was divided by 2.
+
+>+ $Name$ : front
+>> Description : Takes in the owners local posistion on the Y and subtracts it with the Lenght that was divided by 2.
+
+>+  $Name$ : front
+>> Description : Takes in the owners local posistion on the Y and adds it with the Lenght that was divided by 2.
+
+>+  $Name$ : AABBCollider (other)
+>> Description : is a constructor for the AABBCollider that takes in other as a paramitor. It also has the information that is the AABBCollider while using the left, Right, up , top, bottom, and back as its sides.
+
+>+  $Name$ : Draw ()
+>> Description : This funciton draws the information provided to the RayLib screen.
+
+>+  $Name$ : Update ()
+>> Description : is a constructor for the AABBCollider that takes in other as a paramitor.
+
+>+  $Name$ : CheckCollisionCircle (CircleCollider other)
+>> Description : it returns the checkCOllisionAABB because this has information in another file that gos into more detail.
+
+*That is the End of the AABB Collider*
+The Actor calls is a general class for all actors.
+
+# $File$ : *Actor.cs
+>> Description : Is meant to be a class that is going to hold a lot of genaric information about what is a actor so player and enemy dont have to be so large.
+
+> $Name$ :  enum Shape
+>>+ Description : holds the vaules for the Cube and the sqhere
+
+>+  $Name$ : _name (string)
+>>+ Description : Is a varable that hold the value of name.
+
+>+ $Name$ : _localPosistion (Vector3)
+>>+ Description : Is a varable that hold the value of the vector3 that hold 3 different values. it holds the (x,y,z) in that order.
+
+>+  $Name$ : _started (bool)
+>>+ Description : Is a varable that disides to start or not.
+
+>+  $Name$ : _speed (float)
+>>+ Description : Is a varable that hold the value of Speed.
+
+>+  $Name$ : _forwar (Vector3)
+>>+ Description : Is a varable that hold the value of forawd. that is with in the vector 3 values of (x,y,z). But it is given the value of Matrix4.Identity form the MathLIbaray.
+
+>+  $Name$ : _globalTransform (Matrix4)
+>>+ Description : Is a varable that hold the value of the globalTransform but it is given the value of Matrix4.Identity form the MathLIbaray.
+>>>+ Get : returns a vector3 that takes in a _translatin.M03 , _translation.M13, _translation.M23
+>>>>+ Set : is to setTransaltion with the xoffset, yoffset, zoffset  each  is equal to value that is divided by the Vectorcto3 that represetns the Z, Y, or Z  then setsTranslation with the offset it looks like SetTranslation(xoffset, yoffset, zoffset).
+
+>+  $Name$ : _LocalTransform(Matrix4)
+>>+ Description : Is a varable that hold the value of the LocalTransformbut it is given the value of Matrix4.Identity form the MathLIbaray. 
+>>>+ Get : returns a vector3 that takes in a _translatin.M03 , _translation.M13, _translation.M23
+>>>>+ Set : is to setTransaltion with the value.x, value.Y, value.Z
+
+>+  $Name$ : _translation (Matrix4)
+>>+ Description : Is a varable that hold the value of the translation but it is given the value of Matrix4.Identity form the MathLIbaray.
+
+>+  $Name$ : _rotation (Matrix4)
+>>+ Description : Is a varable that hold the value of the rotation but it is given the value of Matrix4.Identity form the MathLIbaray.
+ 
+>+  $Name$ : _scale (Matrix4)
+>>+ Description : Is a varable that hold the value of the scale but it is given the value of Matrix4.Identity form the MathLIbaray.
+
+>+  $Name$ : _coolloder (Collider)
+>>+ Description : Is the call varable for the coollider class that was made.
+
+>+  $Name$ : _children (actor)
+>>+ Description : Children is meant to be parented to there proper parent and so the children will follow the parent in all aspects.
+
+>+  $Name$ : _parent (actor)
+>>+ Description : Is the parent of the children and is meant to hold the athoridy and is meant to force the child to scale and move with them.
+
+>+  $Name$ : _shape (Shape)
+>>+ Description : is the place hold for the Shape enum to be called on.
+
+>+  $Name$ : _color (Color)
+>>+ Description : _color is the name that is called each time i want to set a color to the actor.
+
+>+  $Name$ : ShapeColor (Color)
+>>+ Description :ShapeColor is the name that is called each time i want to set a color to the actor that is a shape.
+
+>+ $Name$ : Size (Vector3)
+>>+ Description : is meant to set the size of the object like the player or the enemy / Actors.
+>>>+ Get : returns a vector3 that takes in a xScale, yScale, zScale. This also sets the Scales with the Vewctor3 that takes in a golbalTransform.
+>>>>+ Set : is to set the scale with the respected x,y,z values.
+
+>+ $Name$ : Forward (Vector3)
+>>+ Description : is a Vector3 that sets the forward or the front of the caractors and actors in the scene
+>>>+ Get : returns a vector3 that takes in a _rotation.M02, _rotation.M12, _rotation.M22.
+>>>>+ Set : is a vector3 that has a point that point is set to a vlaue that is normalized + the world Possition. Then point is put into the lookat function.
+
+>+ $Name$ : Actor()
+>>+ Description : is a empty constructor for actor.
+
+>+ $Name$ : Actor(float x, float y, float z, float speed, string name = "Actor", Shape shape = Shape.CUBE) :
+            this(new Vector3 { X = x, Y = y, Z = z }, name, shape)
+>>+ Description : is a more detailed constructor for Actor that takes all the infomation of the actor calls and uses it for it self.
+
+>+ $Name$ : Actor(Vector3 position, string name = "Actor", Shape shape = Shape.CUBE)
+>>+ Description : is a more updated Actor consturctor that take in a posisiton instend of a x,y,z and a speed.
+
+>+ $Name$ : UpdateTransform()
+>>+ Description : Updates the transform that is there to move will rotating scaleing with the parent or not.
+
+>+ $Name$ : AddChild(Actor child)
+>>+ Description : Adds a child to the current scene.
+
+>+ $Name$ : RemoveChild(Actor child)
+>>+ Description : Removes a child to the current scene.
+
+>+ $Name$ : Start()
+>>+ Description : is the function that starts the actor and makes the start varable true.
+
+>+ $Name$ : Update(float deltaTime, Scene currentScene)
+>>+ Description : Updates the current scene and uses the deltaTime to update
+
+>+ $Name$ : Draw()
+>>+ Description : Draws the current information to RayLIb or to the screen
+
+>+ $Name$ : end()
+>>+ Description : The call that ends the actor.
+
+>+ $Name$ : CheckForCollision(Actor other) bool
+>>+ Description : Runs a check to see if something had a collision
+
+>+ $Name$ : OnCollision(Actor actor, Scene currentScene)
+>>+ Description : Is called when a onCollision happens.
+
+* These are math functions that help with the vector to matrix math *
+
+>+  $Name$ :  SetTranslation(float translationX, float translationY, float translationZ)
+>>+ Description : Set the tarnalslation of the actor.
+
+>+  $Name$ :  Translate(float translationX, float translationY, float translationZ)
+>>+ Description : tarnalslats the actor.
+
+>+  $Name$ :  SetRotation(float radiansX, float radiansY, float radiansZ)
+>>+ Description : Sets the rotation of the actor to the roation x, y, and z.
+
+>+  $Name$ :  Rotate(float radiansX, float radiansY, float radiansZ)
+>>+ Description : Rotates the actor.
+
+>+  $Name$ :   SetScale(float x, float y, float z)
+>>+ Description : sets the scale of the actor
+
+>+  $Name$ :  Scale(float x, float y, float z)
+>>+ Description : Scales the actor
+
+
+* is the end of all of the math fucntion for the actor class * 
+
+>+  $Name$ :  LookAt(Vector3 position)
+>>+ Description : Makes the actor Look at a Vector 3 or Target
+
+>+  $Name$ :  SetColor(Color color)
+>>+ Description :sets the color of the actor
+
+>+  $Name$ :  SetColor (Vector4 colorValue)
+>>+ Description :sets the color of the actor
+
+ This is the end of the file that is named acotr.cs
+
+the file Name bullet is a class that is parenting form the actor class.
+
+# $File$ : Bullet
+Description : Is meant to be a bullet
+
+>+  $Name$ :  _speed(float)
+>>+ Description : is meant to hold the vlaue of speed
+
+>+  $Name$ :  _velocity(Vector3)
+>>+ Description : is meant to hold the value of the vector3
+
+>+  $Name$ :  _moveDirection(Vector3)
+>>+ Description : is meant to hold the value of the vector3
+
+>+  $Name$ :  _collisionRaidus(float)
+>>+ Description : is meant to hold the vlaue of of a raidus
+
+>+  $Name$ :  _scene(Scene)
+>>+ Description : is meant to hold the vlaue of scene
+
+>+  $Name$ :  _timer(float)
+>>+ Description : is meant to hold the vlaue of timer that is 0.
+
+>+  $Name$ :  Bullet
+>>+ Description : Is a enmpty bullet consturor.
+
+>+  $Name$ :  Bullet(Vector3 posistion, float velocityX, float velocityZ, float speed,string name = "Bullet", Shape shape = Shape.CUBE)
+            : base(posistion, name)
+>>+ Description : is the more detailed bullet constructor that is called.
+
+>+  $Name$ :   Update(float deltaTime, Scene currentScene)
+>>+ Description : Is the update for the bullet class.
+
+>+  $Name$ :  OnCollision(Actor actor, Scene currentScene)
+>>+ Description : is the information to do the on collision
+
+>+  $Name$ :   Draw
+>>+ Description : Is the draw for actor for the collider.
+
+The end for the Bullets class.
+
+The CircleCollider.cs is meant to hold the circle collider.
+
+# $File$ : CircelCollider.cs
+
+Description : is the Circle collider
+
+> $Name$ : _coolidionRadius (float)
+>>+ Description : is meant to hold the radius so it reutrns the radius and gets its value.
+
+> $Name$ :CircleCollider(float collisionRadius, Actor owner) : base(owner, ColliderType.CIRCLE)
+>>+ Description : is the cunstructor for the circleCOllider.
+
+> $Name$ :  CheckCollisionCircle(CircleCollider other)
+>>+ Description : Checks for colliditon for the circle.
+
+> $Name$ : CheckCollisionAABB(AABBCollider other)
+>>+ Description : Checks for the collision for the AABB and takes in a AABB collider
+
+> $Name$ : Draw
+>>+ Description : Draws to the screen
+
+End of the Circle Collider file.
+
+The Collider.cs is meant to be a genaric class about the AABB and circle collider.
+
+
+> # $File$ : Collider.cs
+>>+ Description : Generic class for collider.
+
+> $Name$ : Enum ColliderType
+>>+ Description : Hols the circle and AABB collider values.
+
+> $Name$ : _owner
+>>+ Description : is a name for the actor.
+
+> $Name$ : ColliderType
+>>+ Description : retunrs the ColliderType
+
+> $Name$ : Collider(Actor owner, ColliderType colliderType)
+>>+ Description : is a constructor for the collider
+
+> $Name$ :  CheckCollision(Actor other)
+>>+ Description : Checks if there was a colliditon for all actors and takes in a actor
+
+> $Name$ : CheckCollisionCircle(CircleCollider other) { return false; }
+>>+ Description : is a Check for the collider
+
+> $Name$ :  CheckCollisionAABB(AABBCollider other) { return false; }
+>>+ Description : is a Check for the collider
+
+> $Name$ :  Draw
+>>+ Description : is a enmpty draw
+
+> $Name$ :  Update
+>>+ Description : is a empty update
