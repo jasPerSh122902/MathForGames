@@ -89,21 +89,11 @@ namespace MathForGames
                 Health--;
 
 
-                //gives knock back to the player.
-                _velocity *= .50f;
-                LocalPosistion += _velocity;
-
                 if (Health <= 0)
                 {
                     currentScene.RemoveActor(this);  
                 }
             }
-
-            if (actor is Enemey)
-            {
-
-            }
-           
         }
 
         public override void Draw()

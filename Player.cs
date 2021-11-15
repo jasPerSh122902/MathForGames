@@ -58,10 +58,9 @@ namespace MathForGames
         /// <param name="deltaTime"></param>
         public override void Update(float deltaTime, Scene currentScene)
         {
-
             //get the player input direction
             int xDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
-                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_D));
+            + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_D));
             int zDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_W))
                 + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_S));
 
@@ -80,10 +79,10 @@ namespace MathForGames
 
 
             //gets the palyers input direction for the shoot by using arrow key
-            int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
-                   + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
-            int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
-                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
+            int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_G))
+                   + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_J));
+            int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_Y))
+                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_H));
 
             _timer += deltaTime;
 
@@ -116,7 +115,6 @@ namespace MathForGames
 
             base.Update(deltaTime, currentScene);
 
-
         }
 
         /// <summary>
@@ -129,10 +127,6 @@ namespace MathForGames
             if (actor is Enemey)
             {
                 Health--;
-
-                //gives knock back to the player.
-                _velocity *= .50f;
-                LocalPosistion += _velocity;
 
                 //closes window when player dies
                 if (Health <= 0)

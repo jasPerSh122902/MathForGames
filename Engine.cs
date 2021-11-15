@@ -128,6 +128,7 @@ namespace MathForGames
             //sets the scale and translation/ color
             player.SetScale(10, 3, 10);
             player.SetTranslation(30, 0, 30);
+            player.Rotate(0, 3, 0);
             player.SetColor(new Vector4(255, 0, 255, 255));
 
             //sets the scale and translation/ color
@@ -152,12 +153,13 @@ namespace MathForGames
             scene.AddActor(actor2);
             scene.AddActor(actor3);
             scene.AddActor(actor4);
-            
+
             //adds the collision to the player
-            CircleCollider playerCollider = new CircleCollider(1, player);
-            AABBCollider playerBoxCollider = new AABBCollider(2, 2, 2, player);
+            CircleCollider playerCollider = new CircleCollider(5, player);
+            AABBCollider playerBoxCollider = new AABBCollider(4, 4, 4, player);
 
             player.Collider = playerBoxCollider;
+
 
             Enemey enemey1 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey1.SetScale(5, 3, 5);
@@ -213,14 +215,12 @@ namespace MathForGames
         /// </summary>
         private void Update(float deltaTime)
         {
-            
 
             _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 40, _cameraPlayer.WorldPosistion.Z + 40);
             // Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y, _cameraPlayer.WorldPosistion.Z);
 
             _scenes[_currentSceneIndex].Update(deltaTime, _scenes[_currentSceneIndex]);
-
 
             while (Console.KeyAvailable)
                 Console.ReadKey(true);
