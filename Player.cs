@@ -134,10 +134,6 @@ namespace MathForGames
             //if actor is touched by teh enenmy end the game
             if (actor is Enemey && _timer > 1)
             {
-                //Get the velocity and multies
-                Velocity *= -10;
-                //addes the velocity to the localPossition
-                LocalPosistion += Velocity;
                 //decrement health
                 Health--;
 

@@ -20,7 +20,6 @@ namespace MathForGames
         //made started a bool so we can see if actors is there or not.
         private bool _started;
         private float _speed;
-        private bool _drawLines;
 
 
         private Vector3 _forward = new Vector3(0, 0, 1);
@@ -316,6 +315,7 @@ namespace MathForGames
         {
             
             UpdateTransform();
+            //prints things to the console 
             Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y);
         }
 
@@ -324,17 +324,22 @@ namespace MathForGames
         /// </summary>
         public virtual void Draw()
         {
+            //makes a posisiton with the world position for each x,y, and z
             System.Numerics.Vector3 position = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
 
+            //makes a posisiton with the world position for each x,y, and z
             System.Numerics.Vector3 startPos = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
+
+            //makes a posisiton with the world position for each x,y, and z
             System.Numerics.Vector3 endPos = new System.Numerics.Vector3(WorldPosistion.X + Forward.X * 10, WorldPosistion.Y + Forward.Y * 10, WorldPosistion.Z + Forward.Z * 10);
 
+            //makes a shape 
             switch (_shape)
             {
-                case Shape.CUBE:
+                case Shape.CUBE://with the name Cube a x,y, and ,z to fit into
                     Raylib.DrawCube(position, Size.X, Size.Y, Size.Z, ShapeColor);
                     break;
-                case Shape.SPHERE:
+                case Shape.SPHERE://gives the name sqhere a x.
                     Raylib.DrawSphere(position, Size.X, ShapeColor);
                     break;
             }

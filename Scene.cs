@@ -66,7 +66,11 @@ namespace MathForGames
                 _actors[i].Draw();
         }
 
-        //update the ui
+        /// <summary>
+        /// Updtates the UI
+        /// </summary>
+        /// <param name="deltatTime"></param>
+        /// <param name="currentScene"></param>
         public virtual void UpdateUI(float deltatTime, Scene currentScene)
         {
             for (int i = 0; i < _UIElements.Length; i++)
@@ -77,8 +81,9 @@ namespace MathForGames
                 _UIElements[i].Update(deltatTime, currentScene);
             }
         }
-
-        //draws the ui to Raylib while usin the aray UIElements
+        /// <summary>
+        /// draws the ui to Raylib while usin the aray UIElements
+        /// </summary>
         public virtual void DrawUI()
         {
             for (int i = 0; i < _UIElements.Length; i++)
