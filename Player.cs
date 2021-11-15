@@ -11,7 +11,7 @@ namespace MathForGames
     class Player : Actor
     {
         private float _speed;
-        private int _health = 5;
+        private int _health;
         private float _timer = 0;
         private Vector3 _velocity;
         public Scene _scene;
@@ -43,7 +43,7 @@ namespace MathForGames
             : base(x, y, z, speed, name, shape)
         {
             _speed = speed;
-            _health = health;
+            Health = health;
         }
 
 
@@ -59,126 +59,61 @@ namespace MathForGames
         public override void Update(float deltaTime, Scene currentScene)
         {
 
+            //get the player input direction
+            int xDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
+                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_D));
+            int zDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_W))
+                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_S));
 
-            if (Name == "Player1")
+
+            float _scaleUp = .50f;
+            float _scaleDown = 1.50f;
+
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_Z))
+                Scale(_scaleUp, _scaleUp, _scaleUp);
+
+            else if (Raylib.IsKeyDown(KeyboardKey.KEY_X))
+                Scale(_scaleDown, _scaleDown, _scaleDown);
+
+
+            //gets the palyers input direction for the shoot by using arrow key
+            int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+                   + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
+            int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
+                + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
+
+            _timer += deltaTime;
+
+            //takes in a direction and set sets a timer
+            //if cooldowntimer is less than .05 then spawn if not then no spawn
+            if ((xDirectionBullet != 0 && _timer >= .5 || zDirectionBullet != 0 && _timer >= .5))
             {
-                //get the player input direction
-                int xDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_A))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_D));
-                int zDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_W))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_S));
+                //the bullet instence
+                //changed the posision to localPosistion
+                Bullet bullet = new Bullet(LocalPosistion, xDirectionBullet, zDirectionBullet, 40, "Bullet", Shape.SPHERE);
+                bullet.SetScale(1, .5f, 1);
+                bullet.SetColor(new Vector4(16, 45, 19, 255));
+                currentScene.AddActor(bullet);
+
+                //spawns the collider
+                CircleCollider BulletCollider = new CircleCollider(1, bullet);
+                //sets the collider
+                bullet.Collider = BulletCollider;
 
 
-                float _scaleUp = .50f;
-                float _scaleDown = 1.50f;
-
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_Z))
-                    Scale(_scaleUp, _scaleUp, _scaleUp);
-
-                else if (Raylib.IsKeyDown(KeyboardKey.KEY_X))
-                    Scale(_scaleDown, _scaleDown, _scaleDown);
-
-
-                //gets the palyers input direction for the shoot by using arrow key
-                int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_G))
-                       + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_J));
-                int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_Y))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_H));
-
-                _timer += deltaTime;
-
-                //takes in a direction and set sets a timer
-                //if cooldowntimer is less than .05 then spawn if not then no spawn
-                if ((xDirectionBullet != 0 && _timer >= .5 || zDirectionBullet != 0 && _timer >= .5))
-                {
-                    //the bullet instence
-                    //changed the posision to localPosistion
-                    Bullet bullet = new Bullet(LocalPosistion, xDirectionBullet, zDirectionBullet, 40, "Bullet", Shape.SPHERE);
-                    bullet.SetScale(1, .5f, 1);
-                    bullet.SetColor(new Vector4(16, 23, 19, 255));
-                    currentScene.AddActor(bullet);
-
-                    //spawns the collider
-                    CircleCollider BulletCollider = new CircleCollider(1, bullet);
-                    //sets the collider
-                    bullet.Collider = BulletCollider;
-
-
-                    _timer = 0;
-                }
-
-                //Create a vector tht stores the move input
-                Vector3 moveDirection = new Vector3(xDiretion, 0, zDiretion);
-
-                //caculates the veclocity 
-                Velocity = moveDirection.Normalized * Speed * deltaTime;
-
-                LocalPosistion += Velocity;
-
-                base.Update(deltaTime, currentScene);
+                _timer = 0;
             }
 
-            if (Name == "Player2")
-            {
-                //get the player input direction
-                int xDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_I))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_P));
-                int zDiretion = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_O))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_L));
+            //Create a vector tht stores the move input
+            Vector3 moveDirection = new Vector3(xDiretion, 0, zDiretion);
 
+            //caculates the veclocity 
+            Velocity = moveDirection.Normalized * Speed * deltaTime;
 
+            LocalPosistion += Velocity;
 
-                float _scaleUp = .50f;
-                float _scaleDown = 1.50f;
+            base.Update(deltaTime, currentScene);
 
-                if (Raylib.IsKeyDown(KeyboardKey.KEY_M))
-                    Scale(_scaleUp, _scaleUp, _scaleUp);
-
-                else if (Raylib.IsKeyDown(KeyboardKey.KEY_N))
-                    Scale(_scaleDown, _scaleDown, _scaleDown);
-
-
-                //gets the palyers input direction for the shoot by using arrow key
-                int xDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
-                       + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT));
-                int zDirectionBullet = -Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_UP))
-                    + Convert.ToInt32(Raylib.IsKeyDown(KeyboardKey.KEY_DOWN));
-
-                _timer += deltaTime;
-
-                //takes in a direction and set sets a timer
-                //if cooldowntimer is less than .05 then spawn if not then no spawn
-                if ((xDirectionBullet != 0 && _timer >= .5 || zDirectionBullet != 0 && _timer >= .5))
-                {
-                    //the bullet instence
-                    //changed the posision to localPosistion
-                    Bullet bullet = new Bullet(LocalPosistion, xDirectionBullet, zDirectionBullet, 40, "Bullet", Shape.SPHERE);
-                    bullet.SetScale(.5f, .5f, .5f);
-                    bullet.SetColor(new Vector4(16, 23, 19, 255));
-                    currentScene.AddActor(bullet);
-
-                    //spawns the collider
-                    CircleCollider BulletCollider = new CircleCollider(1, bullet);
-                    //sets the collider
-                    bullet.Collider = BulletCollider;
-
-
-                    _timer = 0;
-                }
-
-                //Create a vector tht stores the move input
-                Vector3 moveDirection = new Vector3(xDiretion, 0, zDiretion);
-
-                //caculates the veclocity 
-                Velocity = moveDirection.Normalized * Speed * deltaTime;
-
-                LocalPosistion += Velocity;
-
-                if (_health <= 0)
-                    currentScene.End();
-
-                base.Update(deltaTime, currentScene);
-            }
 
         }
 
@@ -191,14 +126,22 @@ namespace MathForGames
             //if actor is touched by teh enenmy end the game
             if (actor is Enemey)
             {
-                Console.WriteLine("alksdjflaksdjflaksjdf");
                 Health--;
 
+                //gives knock back to the player.
+                _velocity *= .50f;
+                LocalPosistion += _velocity;
+
+                //closes window when player dies
                 if (Health <= 0)
-                    Raylib.CloseWindow();
+                {
+                    Engine.CloseApplication();
+                }
+                    
                     
             }
 
+            //if actor gits hit by bullet
             if (actor is Bullet)
             {
                 Health--;

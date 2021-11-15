@@ -17,6 +17,7 @@ namespace MathForGames
         private Camera3D _camera = new Camera3D();
         private Player _cameraPlayer;
         private Player _player;
+        private int _Spawns = 2;
 
 
 
@@ -109,7 +110,7 @@ namespace MathForGames
 
 
             //This is all player
-            Player player = new Player(5, 5, 10, 50,10, "Player1", Shape.CUBE);
+            Player player = new Player(200, 5, 20, 50,5, "Player1", Shape.CUBE);
             _cameraPlayer = player;
 
 
@@ -117,15 +118,18 @@ namespace MathForGames
 
             Actor actor1 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
             Actor actor2 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
+            Actor actor3 = new Actor(1, 1, 1, 0, "Actor2", Shape.CUBE);
             Actor actor4 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
+            
 
 
             player.AddChild(actor1);
             player.AddChild(actor4);
+            player.AddChild(actor3);
             actor1.AddChild(actor2);
 
             player.SetScale(10, 3, 10);
-            player.SetTranslation(0, 0, 0);
+            player.SetTranslation(30, 0, 30);
             player.SetColor(new Vector4(255, 0, 255, 255));
 
 
@@ -135,6 +139,9 @@ namespace MathForGames
             actor2.SetScale(.50f, .50f, 1);
             actor2.SetColor(new Vector4(200, 100, 255, 255));
 
+            actor3.SetScale(.50f, .50f, 1);
+            actor3.SetColor(new Vector4(200, 100, 255, 255));
+            actor3.Rotate(player.LocalPosistion.X, 5, player.LocalPosistion.Z);
 
             actor4.SetScale(.050f, .050f, .050f);
             actor4.SetColor(new Vector4(200, 50, 255, 255));
@@ -143,7 +150,9 @@ namespace MathForGames
             //scene.AddActor(enemey1);
             scene.AddActor(actor1);
             scene.AddActor(actor2);
+            scene.AddActor(actor3);
             scene.AddActor(actor4);
+            
 
             //adds the collision to the player
             CircleCollider playerCollider = new CircleCollider(5, player);
@@ -153,62 +162,50 @@ namespace MathForGames
 
 
 
-            Enemey enemey1 = new Enemey(40, 1, 40, 30, 2, player, "Enemy1", Shape.SPHERE);
+            Enemey enemey1 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey1.SetScale(5, 3, 5);
-            enemey1.SetTranslation(-10, 1, -15);
+            enemey1.SetTranslation(-40, 1, -45);
             enemey1.LookAt(player.WorldPosistion);
             enemey1.SetColor(new Vector4(255, 0, 255, 255));
 
 
 
             CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
-            AABBCollider enemyBoxCollider = new AABBCollider(34, 42,44, enemey1);
+            AABBCollider enemyBoxCollider = new AABBCollider(34, 42, 44, enemey1);
             enemey1.Collider = enemyCircleCollider;
 
-            EnemySpawner enemySpawner1 = new EnemySpawner(new Vector3(40, 1, 20), enemey1, Shape.CUBE);
+            scene.AddActor(enemey1);
 
-            //This is all player
-            Player player2 = new Player(10, 5, 20, 50, 10, "Player2", Shape.CUBE);
-
-            Actor actor5 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
-            Actor actor6 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
-            Actor actor8 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
-
-            player2.AddChild(actor5);
-            player2.AddChild(actor6);
-            actor6.AddChild(actor8);
-
-            player2.SetScale(10, 3, 10);
-            player2.SetTranslation(20, 0, -20);
-            player2.SetColor(new Vector4(255, 0, 50, 255));
+            Enemey enemey2 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
+            enemey2.SetScale(5, 3, 5);
+            enemey2.SetTranslation(-40, 1, -45);
+            enemey2.LookAt(player.WorldPosistion);
+            enemey2.SetColor(new Vector4(255, 0, 255, 255));
 
 
-            actor5.SetScale(.75f, .75f, 1);
-            actor5.SetColor(new Vector4(200, 0, 255, 255));
 
-            actor6.SetScale(.50f, .50f, 1);
-            actor6.SetColor(new Vector4(200, 100, 255, 255));
+            CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
+            AABBCollider enemyBoxCollider = new AABBCollider(34, 42, 44, enemey1);
+            enemey2.Collider = enemyCircleCollider;
 
-            actor8.SetScale(.050f, .050f, .050f);
-            actor8.SetColor(new Vector4(200, 50, 255, 255));
+            scene.AddActor(enemey2);
 
-            scene.AddActor(player2);
-            scene.AddActor(actor5);
-            scene.AddActor(actor6);
-            scene.AddActor(actor8);
-            
-            for (int i = 0; i < Spawns; i++)
-            {
+            Enemey enemey3 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
+            enemey3.SetScale(5, 3, 5);
+            enemey3.SetTranslation(-40, 1, -45);
+            enemey3.LookAt(player.WorldPosistion);
+            enemey3.SetColor(new Vector4(255, 0, 255, 255));
 
-            }
 
-            //adds the collision to the player
-            CircleCollider player2Collider = new CircleCollider(5, player2);
-            AABBCollider player2BoxCollider = new AABBCollider(34, 42,44, player2);
-            player2.Collider = playerBoxCollider;
+
+            CircleCollider enemy2CircleCollider = new CircleCollider(5, enemey3);
+            AABBCollider enemy2BoxCollider = new AABBCollider(34, 42, 44, enemey3);
+            enemey3.Collider = enemyCircleCollider;
+
+            scene.AddActor(enemey3);
 
             UIText Ui = new UIText(0, 10,10, "Health", Color.DARKBLUE,0,150, 80, 30, "Player 1 Health " + player.Health);
-            UIText Ui2 = new UIText(600, 10, 10, "Health", Color.DARKBLUE, 0, 150, 80, 30, "Player 2 Health " + player2.Health);
+            UIText Ui2 = new UIText(600, 10, 10, "Controls", Color.DARKBLUE, 0, 150, 80, 30, "Shrink Z Grow X" );
 
             //adds the collsion to the enemy
             scene.AddUIElement(Ui);
