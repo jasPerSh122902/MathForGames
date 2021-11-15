@@ -69,10 +69,13 @@ namespace MathForGames
             float _scaleUp = .50f;
             float _scaleDown = 1.50f;
 
+            //if you press z 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_Z))
+                //scale up
                 Scale(_scaleUp, _scaleUp, _scaleUp);
-
+            //if you press x
             else if (Raylib.IsKeyDown(KeyboardKey.KEY_X))
+                //scale down
                 Scale(_scaleDown, _scaleDown, _scaleDown);
 
 
@@ -99,7 +102,6 @@ namespace MathForGames
                 CircleCollider BulletCollider = new CircleCollider(1, bullet);
                 //sets the collider
                 bullet.Collider = BulletCollider;
-
 
                 _timer = 0;
             }

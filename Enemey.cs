@@ -98,6 +98,11 @@ namespace MathForGames
                     currentScene.RemoveActor(this);  
                 }
             }
+
+            if (actor is Enemey)
+            {
+
+            }
            
         }
 

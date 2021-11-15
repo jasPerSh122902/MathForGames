@@ -110,57 +110,54 @@ namespace MathForGames
 
 
             //This is all player
-            Player player = new Player(200, 5, 20, 50,5, "Player1", Shape.CUBE);
+            Player player = new Player(0, 5, 0, 50,5, "Player1", Shape.CUBE);
             _cameraPlayer = player;
 
-
-            
-
+            //are the actors on the player
             Actor actor1 = new Actor(0, 1, 0, 0, "Actor", Shape.CUBE);
             Actor actor2 = new Actor(0, 1, 0, 0, "Actor1", Shape.CUBE);
             Actor actor3 = new Actor(1, 1, 1, 0, "Actor2", Shape.CUBE);
             Actor actor4 = new Actor(1, 1, 1, 0, "Actor3", Shape.CUBE);
             
-
-
+            //childs the actor to the respected player or actor
             player.AddChild(actor1);
             player.AddChild(actor4);
             player.AddChild(actor3);
             actor1.AddChild(actor2);
 
+            //sets the scale and translation/ color
             player.SetScale(10, 3, 10);
             player.SetTranslation(30, 0, 30);
             player.SetColor(new Vector4(255, 0, 255, 255));
 
-
+            //sets the scale and translation/ color
             actor1.SetScale(.75f, .75f, 1);
             actor1.SetColor(new Vector4(200, 0, 255, 255));
 
+            //sets the scale and translation/ color
             actor2.SetScale(.50f, .50f, 1);
             actor2.SetColor(new Vector4(200, 100, 255, 255));
 
+            //sets the scale and translation/ color
             actor3.SetScale(.50f, .50f, 1);
             actor3.SetColor(new Vector4(200, 100, 255, 255));
             actor3.Rotate(player.LocalPosistion.X, 5, player.LocalPosistion.Z);
 
+            //sets the scale and translation/ color
             actor4.SetScale(.050f, .050f, .050f);
             actor4.SetColor(new Vector4(200, 50, 255, 255));
 
             scene.AddActor(player);
-            //scene.AddActor(enemey1);
             scene.AddActor(actor1);
             scene.AddActor(actor2);
             scene.AddActor(actor3);
             scene.AddActor(actor4);
             
-
             //adds the collision to the player
-            CircleCollider playerCollider = new CircleCollider(5, player);
-            AABBCollider playerBoxCollider = new AABBCollider(34, 42,44, player);
+            CircleCollider playerCollider = new CircleCollider(1, player);
+            AABBCollider playerBoxCollider = new AABBCollider(2, 2, 2, player);
 
             player.Collider = playerBoxCollider;
-
-
 
             Enemey enemey1 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey1.SetScale(5, 3, 5);
@@ -168,39 +165,35 @@ namespace MathForGames
             enemey1.LookAt(player.WorldPosistion);
             enemey1.SetColor(new Vector4(255, 0, 255, 255));
 
-
-
-            CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
-            AABBCollider enemyBoxCollider = new AABBCollider(34, 42, 44, enemey1);
+            CircleCollider enemyCircleCollider = new CircleCollider(1, enemey1);
+            AABBCollider enemyBoxCollider = new AABBCollider(20, 20, 20, enemey1);
             enemey1.Collider = enemyCircleCollider;
 
             scene.AddActor(enemey1);
 
             Enemey enemey2 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey2.SetScale(5, 3, 5);
-            enemey2.SetTranslation(-40, 1, -45);
+            enemey2.SetTranslation(-80, 1, -45);
             enemey2.LookAt(player.WorldPosistion);
             enemey2.SetColor(new Vector4(255, 0, 255, 255));
 
-
-
-            CircleCollider enemyCircleCollider = new CircleCollider(5, enemey1);
-            AABBCollider enemyBoxCollider = new AABBCollider(34, 42, 44, enemey1);
-            enemey2.Collider = enemyCircleCollider;
+            CircleCollider enemy2CircleCollider = new CircleCollider(1, enemey2);
+            AABBCollider enemy2BoxCollider = new AABBCollider(20, 20, 20, enemey2);
+            enemey2.Collider = enemy2CircleCollider;
 
             scene.AddActor(enemey2);
 
             Enemey enemey3 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
             enemey3.SetScale(5, 3, 5);
-            enemey3.SetTranslation(-40, 1, -45);
+            enemey3.SetTranslation(-100, 1, -45);
             enemey3.LookAt(player.WorldPosistion);
             enemey3.SetColor(new Vector4(255, 0, 255, 255));
 
 
 
-            CircleCollider enemy2CircleCollider = new CircleCollider(5, enemey3);
-            AABBCollider enemy2BoxCollider = new AABBCollider(34, 42, 44, enemey3);
-            enemey3.Collider = enemyCircleCollider;
+            CircleCollider enemy3CircleCollider = new CircleCollider(1, enemey3);
+            AABBCollider enemy3BoxCollider = new AABBCollider(5, 5, 5, enemey3);
+            enemey3.Collider = enemy3CircleCollider;
 
             scene.AddActor(enemey3);
 
