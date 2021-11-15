@@ -18,10 +18,6 @@ namespace MathForGames
         private Camera3D _camera = new Camera3D();
         private Player _cameraPlayer;
         private Player _player;
-        private int _Spawns = 2;
-
-
-
 
         /// <summary>
         /// is the call to start the application
@@ -235,7 +231,7 @@ namespace MathForGames
         private void Update(float deltaTime)
         {
 
-            //makes the UI 
+            //makes the UI for the health of player
             UIText Ui = new UIText(0, 10, 10, "Health", Color.DARKBLUE, 0, 150, 80, 30, "Player 1 Health " + _player.Health);
 
             //adds the UI to the scene
