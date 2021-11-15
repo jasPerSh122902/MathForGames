@@ -34,11 +34,13 @@ namespace MathForGames
             set { _health = value; }
         }
 
+        //a player holder contructor for player
         public Player()
         {
 
         }
 
+        //a constructor for player
         public Player(float x, float y, float z, float speed, int health, string name = "Player", Shape shape = Shape.CUBE)
             : base(x, y, z, speed, name, shape)
         {
@@ -106,6 +108,7 @@ namespace MathForGames
                 //sets the collider
                 bullet.Collider = BulletCollider;
 
+                //sets timer back to 0
                 _timer = 0;
             }
 

@@ -27,6 +27,9 @@ namespace MathForGames
             set { _velocity = value; }
         }
 
+        /// <summary>
+        /// empty cunstructor for the bullet
+        /// </summary>
         public Bullet()
         {
 
@@ -53,43 +56,57 @@ namespace MathForGames
 
         }
 
+        /// <summary>
+        /// Updates bullets
+        /// </summary>
+        /// <param name="deltaTime"></param>
+        /// <param name="currentScene"></param>
         public override void Update(float deltaTime, Scene currentScene)
         {
-
+            //moves the bullet based on the velocity
             _moveDirection = new Vector3(Velocity.X, Velocity.Y, Velocity.Z);
 
+            //then makes velocity = to the movediection times speed and deltaTIme...
             _velocity = _moveDirection.Normalized * Speed * deltaTime;
 
+            //Then adds the localPosistion to the velocty...
             LocalPosistion += _velocity;
 
+            //updtates 
             base.Update(deltaTime, currentScene);
-
+            //meakse timer adds deltaTime to it
             _timer += deltaTime;
 
-            
+            //if the timer is greater than 3
             if (_timer >= 3)
             {
+                //remove the actor
                 currentScene.RemoveActor(this);
+                //sets timer to 0 to reset
                 _timer = 0;
             }
                 
 
         }
 
+        /// <summary>
+        /// gives oncollision information
+        /// </summary>
+        /// <param name="actor"></param>
+        /// <param name="currentScene"></param>
         public override void OnCollision(Actor actor, Scene currentScene)
         {
+            //if actor hits the enemy
             if (actor is Enemey)
             {
+                //remove that actor
                 currentScene.RemoveActor(this);
             }
 
-            if (actor.Name == "Player2")
-            {
-                _velocity *= .50f;
-                LocalPosistion += _velocity;
-            }
-
         }
+        /// <summary>
+        /// draws the screen
+        /// </summary>
         public override void Draw()
         {
             base.Draw();

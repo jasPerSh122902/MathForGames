@@ -213,11 +213,13 @@ namespace MathForGames
         /// </summary>
         public void UpdateTransform()
         {
+            //allos movement with the transform by multitling the translation and roation with the scale...
             _LocalTransform = _translation * _rotation * _scale;
 
-            if (Parent != null)
+            //if parent dos not eggsit
+            if (Parent != null)//update the GolbalTransform by the parent...
                 GolbalTransform = Parent.GolbalTransform * LocalTransform;
-            else
+            else//if else make the local and golbal transform equal 
                 GolbalTransform = LocalTransform;
 
         }

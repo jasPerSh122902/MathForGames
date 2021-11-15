@@ -82,16 +82,24 @@ namespace MathForGames
                 * 180 / Math.PI < 55) && distace < 360; 
         }
 
+        /// <summary>
+        /// happens the check for collision calls.
+        /// decrement health or removes actor backses on health
+        /// </summary>
+        /// <param name="actor"></param>
+        /// <param name="currentScene"></param>
         public override void OnCollision(Actor actor, Scene currentScene)
         {
+            //if actor hits the bullet
             if (actor is Bullet)
             {
-                Velocity *= -10;
-                LocalPosistion += Velocity;
+                //dectrement health
                 Health--;
 
+                //when health is lest than 0 ...
                 if (Health <= 0)
                 {
+                    //remove actor
                     currentScene.RemoveActor(this);  
                 }
             }

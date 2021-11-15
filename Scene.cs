@@ -66,6 +66,7 @@ namespace MathForGames
                 _actors[i].Draw();
         }
 
+        //update the ui
         public virtual void UpdateUI(float deltatTime, Scene currentScene)
         {
             for (int i = 0; i < _UIElements.Length; i++)
@@ -77,6 +78,7 @@ namespace MathForGames
             }
         }
 
+        //draws the ui to Raylib while usin the aray UIElements
         public virtual void DrawUI()
         {
             for (int i = 0; i < _UIElements.Length; i++)

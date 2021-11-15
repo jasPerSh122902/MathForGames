@@ -85,10 +85,13 @@ namespace MathForGames
             Raylib.InitWindow(800, 450, "The math for game. ");
             Raylib.SetTargetFPS(60);
 
+            //calls the camera
             InitializeCamera();
 
+            //starts the stopwatch
             _stopwatch.Start();
 
+            //callles the initializeActor
             InitializeActor();
 
             _scenes[_currentSceneIndex].Start();
@@ -107,8 +110,10 @@ namespace MathForGames
 
         private void InitializeActor()
         {
+            //makes new instence of scene
             Scene scene = new Scene();
 
+            //The scene is now equal to scene
             theScene = scene;
 
             //This is all player
@@ -161,44 +166,58 @@ namespace MathForGames
             //adds the collision to the player
             CircleCollider playerCollider = new CircleCollider(5, player);
             AABBCollider playerBoxCollider = new AABBCollider(4, 4, 4, player);
-
+            //addes the collider to the player
             player.Collider = playerBoxCollider;
 
-
+            //enemy 1
             Enemey enemey1 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
+            //sets the scale and translation ,and  color
             enemey1.SetScale(5, 3, 5);
             enemey1.SetTranslation(-40, 1, -45);
-            enemey1.LookAt(player.WorldPosistion);
             enemey1.SetColor(new Vector4(255, 0, 255, 255));
+            //makes the enmy look and chase the player
+            enemey1.LookAt(player.WorldPosistion);
+           
 
             CircleCollider enemyCircleCollider = new CircleCollider(1, enemey1);
             AABBCollider enemyBoxCollider = new AABBCollider(20, 20, 20, enemey1);
+            //addes the collider to the enemy
             enemey1.Collider = enemyCircleCollider;
 
             scene.AddActor(enemey1);
 
+            //enemey 2
             Enemey enemey2 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
+            //sets the scale and translation/ color
             enemey2.SetScale(5, 3, 5);
             enemey2.SetTranslation(-80, 1, -45);
-            enemey2.LookAt(player.WorldPosistion);
             enemey2.SetColor(new Vector4(255, 0, 255, 255));
+            //makes the enmy look and chase the player
+            enemey2.LookAt(player.WorldPosistion);
+            
 
             CircleCollider enemy2CircleCollider = new CircleCollider(1, enemey2);
             AABBCollider enemy2BoxCollider = new AABBCollider(20, 20, 20, enemey2);
+            //addes the collider to the enemy
             enemey2.Collider = enemy2CircleCollider;
 
             scene.AddActor(enemey2);
 
+            //enemy 3
             Enemey enemey3 = new Enemey(4, 1, 4, 30, 2, player, "Enemy1", Shape.SPHERE);
+            //sets the scale and translation/ color
             enemey3.SetScale(5, 3, 5);
             enemey3.SetTranslation(-100, 1, -45);
-            enemey3.LookAt(player.WorldPosistion);
             enemey3.SetColor(new Vector4(255, 0, 255, 255));
+            //makes the enmy look and chase the player
+            enemey3.LookAt(player.WorldPosistion);
+           
 
 
 
             CircleCollider enemy3CircleCollider = new CircleCollider(1, enemey3);
             AABBCollider enemy3BoxCollider = new AABBCollider(5, 5, 5, enemey3);
+            //addes the collider to the enemy
             enemey3.Collider = enemy3CircleCollider;
 
             UIText Ui2 = new UIText(600, 10, 10, "Controls", Color.DARKBLUE, 0, 150, 80, 30, "Shrink Z Grow X");
@@ -216,13 +235,13 @@ namespace MathForGames
         private void Update(float deltaTime)
         {
 
-
+            //makes the UI 
             UIText Ui = new UIText(0, 10, 10, "Health", Color.DARKBLUE, 0, 150, 80, 30, "Player 1 Health " + _player.Health);
 
-            //adds the collsion to the enemy
+            //adds the UI to the scene
             theScene.AddUIElement(Ui);
 
-
+            // Gives the camera a posistion
             _camera.position = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y + 40, _cameraPlayer.WorldPosistion.Z + 40);
             // Point the camera is focused on
             _camera.target = new System.Numerics.Vector3(_cameraPlayer.WorldPosistion.X, _cameraPlayer.WorldPosistion.Y, _cameraPlayer.WorldPosistion.Z);
@@ -238,9 +257,12 @@ namespace MathForGames
         /// </summary>
         private void Draw()
         {
+            //begins the drawing for the game
             Raylib.BeginDrawing();
+            //set the camera
             Raylib.BeginMode3D(_camera);
 
+            //makes the grid for the player
             Raylib.ClearBackground(Color.DARKGREEN);
             Raylib.DrawGrid(500, 10);
 
@@ -248,11 +270,12 @@ namespace MathForGames
             //add all of the icons back to the buffer
             _scenes[_currentSceneIndex].Draw();
 
-
+            //closes the 3D
             Raylib.EndMode3D();
 
             _scenes[_currentSceneIndex].DrawUI();
 
+            //end the drawing 
             Raylib.EndDrawing();
 
         }
