@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace MathLibaray
 {
     public struct Vector2
