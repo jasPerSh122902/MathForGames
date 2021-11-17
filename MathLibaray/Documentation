@@ -1,0 +1,36 @@
+# *MathLibrary*
+The MathLibrary is a library of all of the math and logic that is with in the game called MathForGames.
+
+The Matrix3.cs is a file that holds the information on the Matrix 3.
+
+# *File* : Matrix3
+* Desprition : The Matrix3 perpuse is to give infromation and a understanding to the idea of the Matrix ... 3 meaning that its going to hold meaning things like the roation and translation but also makes sure to add on to the idea of x and y.
+
+> $Name$ :  M00, M01, M02, M10, M11, M12, M20, M21, M22
+>> Description : this is the information names for the x and y but in a set to these number. 
+
+> $Name$ : Matrix3(float m00, float m01, float m02,
+                       float m10, float m11, float m12,
+                       float m20, float m21, float m22)
+>> Description : this is a basic construcor for the Matrix3 that is needed to use the infomraiton provided. And it takes in the float that was made above.
+
+> $Name$ : Matrix3 Identity
+>> Description returns a Matrix3 but more inportantly it returns the x and y as a value of 1 that is extrementy inportant. P.S it alos reutnrs the third colom and line as a 1 dont touch.
+
+> $Name$ : CreateRotation(float radians)
+>> Description : Rotats the actor on the axis that is set as a main point but the rotation is done by rotated the Xy and Yx this may look confusing but there is a Xx and Yy each coordinate has its own coordinate and a x and y of it. (Example) Ww, Wx, Wy.
+
+> $Name$ : Matrix3 CreateTranslation(float x, float y)
+>> Description :  This translats on the T axis or in other words the translation axis. But still leave W alone. this Translaiton takes in a x and a y float.
+
+> $Name$ : Matrix3 CreateTranslation(Vector2 Position)
+>> Description :  This translats on the T axis or in other words the translation axis. But still leave W alone. this Translaiton takes in a position vector2
+
+> $Name$ : Matrix3 CreateScale(float x, float y)
+>> Description :  
+
+> $Name$ : 
+>> Description :  
+
+> $Name$ : 
+>> Description :  
