@@ -8,38 +8,49 @@ The Matrix3.cs is a file that holds the information on the Matrix 3.
 
 > $Name$ :  M00, M01, M02, M10, M11, M12, M20, M21, M22 (float).
 >> Description : this is the information names for the x and y but in a set to these number. 
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3(float m00, float m01, float m02,float m10, float m11, float m12, float m20, float m21, float m22).
+> $Name$ : Matrix3(float m00, float m01, float m02,float m10, float m11, float m12, float m20, float m21, float m22). static
 >> Description : this is a basic construcor for the Matrix3 that is needed to use the infomraiton provided. And it takes in the float that was made above.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3 Identity
+> $Name$ : Matrix3 Identity static
 >> Description returns a Matrix3 but more inportantly it returns the x and y as a value of 1 that is extrementy inportant. P.S it alos reutnrs the third colom and line as a 1 dont touch.
+>>>+ Visualbility : public
 
-> $Name$ : CreateRotation(float radians)
+> $Name$ : CreateRotation(float radians) static
 >> Description : Rotats the actor on the axis that is set as a main point but the rotation is done by rotated the Xy and Yx this may look confusing but there is a Xx and Yy each coordinate has its own coordinate and a x and y of it. (Example) Ww, Wx, Wy.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3 CreateTranslation(float x, float y)
+> $Name$ : Matrix3 CreateTranslation(float x, float y) static
 >> Description :  This translats on the T axis or in other words the translation axis. But still leave W alone. this Translaiton takes in a x and a y float.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3 CreateTranslation(Vector2 Position)
+> $Name$ : Matrix3 CreateTranslation(Vector2 Position) static
 >> Description :  This translats on the T axis or in other words the translation axis. But still leave W alone. this Translaiton takes in a position vector2
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3 CreateScale(float x, float y)
+> $Name$ : Matrix3 CreateScale(float x, float y) static
 >> Description :  Uses the x and the y to scale the actor on the x and y. This makes the actor bigger.
+>>>+ Visualbility : public
 
 This is the _Math_ section were only function for the math is located.
 
-> $Name$ : Matrix3 operator +(Matrix3 lhs, Matrix3 rhs)
+> $Name$ : Matrix3 operator +(Matrix3 lhs, Matrix3 rhs) static
 >> Description :  This allows the addition of a Matrix 3 to a matirx 3.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3 operator -(Matrix3 lhs, Matrix3 rhs)
+> $Name$ : Matrix3 operator -(Matrix3 lhs, Matrix3 rhs) static
 >> Description :  This allows the subtraction of a Matrix 3 to a matirx 3.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix3 operator *(Matrix3 lhs, Matrix3 rhs)
+> $Name$ : Matrix3 operator *(Matrix3 lhs, Matrix3 rhs) static
 >> Description :  This allows the multipliction of a Matrix 3 to a matirx 3.
+>>>+ Visualbility : public
 
-> $Name$ :  Vector3 operator *(Matrix3 lhs, Vector3 rhs)
+> $Name$ :  Vector3 operator *(Matrix3 lhs, Vector3 rhs) static
 >> Description :  This allows the multipliction of a Matrix 3 to a vector 3.
+>>>+ Visualbility : public
 
 This is the end of the file named Matrix3 like all of the other files that will be explaned the main purpose of them is to hold fucntion for the math to work.
 
@@ -48,44 +59,57 @@ This is the end of the file named Matrix3 like all of the other files that will 
 
 > $Name$ :M00, M01, M02, M03, M10, M11, M12, M13, M20, M21, M22, M23, M30, M31, M32 , M33 (float)
 >> Description : this is the information names for the x and y and z but in a set to these number. 
+>>>+ Visualbility : public
 
 > $Name$ : Matrix4(float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23,float m30, float m31, float m32, float m33)
 >> Description : this is a basic construcor for the Matrix3 that is needed to use the infomraiton provided. And it takes in the float that was made above.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix4 Identity
+> $Name$ : Matrix4 Identity static
 >> Description returns a Matrix3 but more inportantly it returns the x and y and z as a value of 1 that is extrementy inportant. P.S it alos reutnrs the forth colom and line as a 1 dont touch.
+>>>+ Visualbility : public
 
-> $Name$ : CreateRotationZ(float radians)
+> $Name$ : CreateRotationZ(float radians) static
 >> Description : Rotats the actor on the Z axis.
+>>>+ Visualbility : public
 
-> $Name$ : CreateRotationY(float radians)
+> $Name$ : CreateRotationY(float radians) static
 >> Description : Rotats the actor on the Y axis.
+>>>+ Visualbility : public
 
-> $Name$ : CreateRotationX(float radians)
+> $Name$ : CreateRotationX(float radians) static
 >> Description : Rotats the actor on the X axis.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix4 CreateTranslation(float x, float y, float z)
+> $Name$ : Matrix4 CreateTranslation(float x, float y, float z) static
 >> Description :  This translats on the T axis or in other words the translation axis. But still leave W alone. this Translaiton takes in a x,y and z float.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix4 CreateTranslation(float x, float y)
+> $Name$ : Matrix4 CreateTranslation(float x, float y) static
 >> Description :  This translats on the T axis or in other words the translation axis. But still leave W alone. this Translaiton takes in a x and a y float.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix4 CreateScale(float x, float y, float z)
+> $Name$ : Matrix4 CreateScale(float x, float y, float z) static
 >> Description :  Uses the x and the y  and the z to scale the actor on the x and y and z. This makes the actor bigger.
+>>>+ Visualbility : public
 
 This is the _Math_ section were only function for the math is located.
 
-> $Name$ : Matrix4 operator +(Matrix4 lhs, Matrix4 rhs)
+> $Name$ : Matrix4 operator +(Matrix4 lhs, Matrix4 rhs) static
 >> Description :  This allows the addition of a Matrix 4 to a matirx 4.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix4 operator -(Matrix4 lhs, Matrix4 rhs)
+> $Name$ : Matrix4 operator -(Matrix4 lhs, Matrix4 rhs) static
 >> Description :  This allows the subtraction of a Matrix 4 to a matirx 4.
+>>>+ Visualbility : public
 
-> $Name$ : Matrix4 operator *(Matrix4 lhs, Matrix4 rhs)
+> $Name$ : Matrix4 operator *(Matrix4 lhs, Matrix4 rhs) static
 >> Description :  This allows the multipliction of a Matrix 4 to a matirx 4.
+>>>+ Visualbility : public
 
-> $Name$ :  Vector4 operator *(Matrix4 lhs, Vector4 rhs)
+> $Name$ :  Vector4 operator *(Matrix4 lhs, Vector4 rhs) static
 >> Description :  This allows the multipliction of a Matrix 4 to a vector 4.
+>>>+ Visualbility : public
 
 This is the end of the file named Matrix4 like all of the other files that will be explaned the main purpose of them is to hold fucntion for the math to work.
 
@@ -96,47 +120,60 @@ The next file is going to be the Vector2 struct.
 
 > $Name$ : X (float)
 >> Description : This is the x axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Y (float)
 >> Description : This is the y axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ :  Vector2(float x, float y)
 >> Description : A basic constructor of the Vectro2 struct
+>>>+ Visualbility : public
 
 > $Name$ : Magnitude (float)
 >> Description : This is the X axis and Y axis multiplied together and squared off and casted into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Vector2 Normalized()
 >> Description : this is the Magnitude but it takes the current vector2 and divideds by the Magnitude and looks like (this / Magnitude).
+>>>+ Visualbility : public
 
 > $Name$ : Vector2 Normalized
 >> Description : This is to normalize the values that come out of the Normalized function and makes the values after normalized equal to this Vectro2.
+>>>+ Visualbility : public
 
-> $Name$ : DotProduct(Vector2 lhs, Vector2 rhs)
+> $Name$ : DotProduct(Vector2 lhs, Vector2 rhs) static float
 >> Description : This combines the left hand sides Vector2 with the right hand sides Vector2  and spits out a new Vector2.
+>>>+ Visualbility : public
 
-> $Name$ : Distance(Vector2 lhs, Vector2 rhs)
+> $Name$ : Distance(Vector2 lhs, Vector2 rhs) static float
 >> Description : subtrancts the Vector2 by each other then gets the Magnitude of the Vectors.
 
 The rest will be the math part of the struct that is were all of the addition and subtract is taking place.
 
-> $Name$ : Vector2 operator +(Vector2 lhs, Vector2 rhs)
+> $Name$ : Vector2 operator +(Vector2 lhs, Vector2 rhs) static
 >> Description : Adds the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector2 operator -(Vector2 lhs, Vector2 rhs)
+> $Name$ : Vector2 operator -(Vector2 lhs, Vector2 rhs) static
 >> Description : Subtrancts the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector2 operator *(Vector2 lhs, Vector2 rhs)
+> $Name$ : Vector2 operator *(Vector2 lhs, Vector2 rhs) static
 >> Description : Multiplies the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector2 operator /(Vector2 lhs, Vector2 rhs)
+> $Name$ : Vector2 operator /(Vector2 lhs, Vector2 rhs) static
 >> Description : Divideds the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector2 operator ==(Vector2 lhs, Vector2 rhs)
+> $Name$ : Vector2 operator ==(Vector2 lhs, Vector2 rhs) static
 >> Description : Sets  the two vectors to each other.
+>>>+ Visualbility : public
 
-> $Name$ : Vector2 operator !=(Vector2 lhs, Vector2 rhs)
+> $Name$ : Vector2 operator !=(Vector2 lhs, Vector2 rhs) static
 >> Description : Compares the two vectors.
+>>>+ Visualbility : public
 
 This is the end of the file named Vector2 like all of the other files that will be explaned the main purpose of them is to hold fucntion for the math to work.
 
@@ -147,53 +184,69 @@ The next file is going to be the Vector3 struct.
 
 > $Name$ : X (float)
 >> Description : This is the x axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Y (float)
 >> Description : This is the y axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Z (float)
 >> Description : This is the z axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ :  Vector3(float x, float y, float z)
 >> Description : A basic constructor of the Vector3 struct
+>>>+ Visualbility : public
 
 > $Name$ : Magnitude (float)
 >> Description : This is the X axis , Y axis and the Z axis multiplied together and squared off and casted into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Vector3 Normalized()
 >> Description : this is the Magnitude but it takes the current vector3 and divideds by the Magnitude and looks like (this / Magnitude).
+>>>+ Visualbility : public
 
 > $Name$ : Vector3 Normalized
 >> Description : This is to normalize the values that come out of the Normalized function and makes the values after normalized equal to this Vectro3.
+>>>+ Visualbility : public
 
-> $Name$ : DotProduct(Vector3 lhs, Vector3 rhs)
+> $Name$ : DotProduct(Vector3 lhs, Vector3 rhs) static float
 >> Description : This combines the left hand sides Vector3 with the right hand sides Vector3 and spits out a new Vector3.
+>>>+ Visualbility : public
 
-> $Name$ : Distance(Vector3 lhs, Vector3 rhs)
+> $Name$ : Distance(Vector3 lhs, Vector3 rhs) static float
 >> Description : subtrancts the Vector3 by each other then gets the Magnitude of the Vectors.
+>>>+ Visualbility : public
 
 The rest will be the math part of the struct that is were all of the addition and subtract is taking place.
 
-> $Name$ : Vector3 operator +(Vector3 lhs, Vector3 rhs)
+> $Name$ : Vector3 operator +(Vector3 lhs, Vector3 rhs) static
 >> Description : Adds the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector3 operator -(Vector3 lhs, Vector3 rhs)
+> $Name$ : Vector3 operator -(Vector3 lhs, Vector3 rhs) static
 >> Description : Subtrancts the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector3 operator *(Vector3 vec3, float scalar)
+> $Name$ : Vector3 operator *(Vector3 vec3, float scalar) static
 >> Description : Multiplies the a vector3 by a scalar.
+>>>+ Visualbility : public
 
-> $Name$ :Vector3 operator *(float scalar, Vector3 vec3)
+> $Name$ :Vector3 operator *(float scalar, Vector3 vec3) static
 >> Description : Multiplies the a vector3 by a scalar.(this oporation is meant to be the same as the other Vector3 multiplication because it meant to do the same thing).
+>>>+ Visualbility : public
 
-> $Name$ : Vector3 operator /(Vector3 vec3, float scalar)
+> $Name$ : Vector3 operator /(Vector3 vec3, float scalar) static
 >> Description : Divideds the a vector by a scalar
+>>>+ Visualbility : public
 
-> $Name$ : Vector3 operator ==(Vector3 lhs, Vector3 rhs)
+> $Name$ : Vector3 operator ==(Vector3 lhs, Vector3 rhs) static
 >> Description : Sets  the two vectors to each other.
+>>>+ Visualbility : public
 
-> $Name$ : Vector3 operator !=(Vector3 lhs, Vector3 rhs)
+> $Name$ : Vector3 operator !=(Vector3 lhs, Vector3 rhs) static
 >> Description : Compares the two vectors.
+>>>+ Visualbility : public
 
 This is the end of the file named Vector3 like all of the other files that will be explaned the main purpose of them is to hold fucntion for the math to work.
 
@@ -204,53 +257,70 @@ The next file is going to be the Vector4 struct.
 
 > $Name$ : X (float)
 >> Description : This is the x axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Y (float)
 >> Description : This is the y axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Z (float)
 >> Description : This is the z axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : W (float)
 >> Description : This is the z axis in game turned into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Vector4(float x, float y, float z, float w)
 >> Description : A basic constructor of the Vector4 struct
+>>>+ Visualbility : public
 
 > $Name$ : Magnitude (float)
 >> Description : This is the X axis , Y axis , Z axis and the W axis multiplied together and squared off and casted into a float.
+>>>+ Visualbility : public
 
 > $Name$ : Vector4 Normalized()
 >> Description : this is the Magnitude but it takes the current vector4 and divideds by the Magnitude and looks like (this / Magnitude).
+>>>+ Visualbility : public
 
 > $Name$ : Vector4 Normalized
 >> Description : This is to normalize the values that come out of the Normalized function and makes the values after normalized equal to this Vectro4.
+>>>+ Visualbility : public
 
-> $Name$ : DotProduct(Vector4 lhs, Vector4 rhs)
+> $Name$ : DotProduct(Vector4 lhs, Vector4 rhs) static float
 >> Description : This combines the left hand sides Vector3 with the right hand sides Vector4 and spits out a new Vector3.
+>>>+ Visualbility : public
 
-> $Name$ : Distance(Vector4 lhs, Vector4 rhs)
+> $Name$ : Distance(Vector4 lhs, Vector4 rhs) static float
 >> Description : subtrancts the Vector4 by each other then gets the Magnitude of the Vectors.
+>>>+ Visualbility : public
 
 The rest will be the math part of the struct that is were all of the addition and subtract is taking place.
 
-> $Name$ : Vector4 operator +(Vector4 lhs, Vector4 rhs)
->> Description : Adds the two vectors.
+> $Name$ : Vector4 operator +(Vector4 lhs, Vector4 rhs) static
+>> Description : Adds the two vectors. 
+>>>+ Visualbility : public
 
-> $Name$ : Vector4 operator -(Vector4 lhs, Vector4 rhs)
+> $Name$ : Vector4 operator -(Vector4 lhs, Vector4 rhs) static
 >> Description : Subtrancts the two vectors.
+>>>+ Visualbility : public
 
-> $Name$ : Vector4 operator *(Vector4 vec4, float scalar)
+> $Name$ : Vector4 operator *(Vector4 vec4, float scalar) static
 >> Description : Multiplies the a vector4 by a scalar.
+>>>+ Visualbility : public
 
-> $Name$ :Vector4 operator *(float scalar, Vector4 vec4)
+> $Name$ :Vector4 operator *(float scalar, Vector4 vec4) static
 >> Description : Multiplies the a vector4 by a scalar. (this oporation is meant to be the same as the other Vector4 multiplication because it meant to do the same thing).
+>>>+ Visualbility : public
 
-> $Name$ : Vector4 operator /(Vector4 vec4, float scalar)
+> $Name$ : Vector4 operator /(Vector4 vec4, float scalar) static
 >> Description : Divideds the a vector by a scalar
+>>>+ Visualbility : public
 
-> $Name$ : Vector4 operator ==(Vector4 lhs, Vector4 rhs)
+> $Name$ : Vector4 operator ==(Vector4 lhs, Vector4 rhs) static
 >> Description : Sets  the two vectors to each other.
+>>>+ Visualbility : public
 
-> $Name$ : Vector4 operator !=(Vector4 lhs, Vector4 rhs)
+> $Name$ : Vector4 operator !=(Vector4 lhs, Vector4 rhs) static
 >> Description : Compares the two vectors.
+>>>+ Visualbility : public

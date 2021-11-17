@@ -18,44 +18,57 @@ So the applictation is quite short.<<
 is meant to hold the information that is the AABBCollider
 information : (this will be reacurring information is meant to list the funcitons and some of the varables.)
 
->+  $Name$ :  _width
+>+  $Name$ :  _width float
 >>+ Description : is a float that is meant to hold the data of Z
+>>>+ Visualbility : private
 
->+  $Name$ :  _height
+>+  $Name$ :  _height float
 >>+ Description : is a float that is meant to hold the data of Y
+>>>+ Visualbility : public
 
->+  $Name$ :  _lenght
+>+  $Name$ :  _lenght float
 >>+ Description : is a float that is meant to hold the data of X
+>>>+ Visualbility : pulbic
 
->+  $Name$ : Left
+>+  $Name$ : Left float
 >> Description : Takes in the owners local posistion on the x and subtracts it with the width that was divided by 2.
+>>>+ Visualbility : pulblic
 
->+  $Name$ : Right
-> Description : Takes in the owners local posistion on the x and adds it with the width that was divided by 2.
+>+  $Name$ : Right float
+>> Description : Takes in the owners local posistion on the x and adds it with the width that was divided by 2.
+>>>+ Visualbility : public
 
->+  $Name$ : top
+>+  $Name$ : top float
 >> Description : Takes in the owners local posistion on the Y and subtracts it with the Heightthat was divided by 2.
+>>>+ Visualbility : public
 
->+  $Name$ : dottom
+>+  $Name$ : dottom float
 >> Description : Takes in the owners local posistion on the Y and adds it with the Height that was divided by 2.
+>>>+ Visualbility : public
 
->+ $Name$ : front
+>+ $Name$ : front float
 >> Description : Takes in the owners local posistion on the Y and subtracts it with the Lenght that was divided by 2.
+>>>+ Visualbility : public
 
->+  $Name$ : front
+>+  $Name$ : front float
 >> Description : Takes in the owners local posistion on the Y and adds it with the Lenght that was divided by 2.
+>>>+ Visualbility : public
 
->+  $Name$ : AABBCollider (other)
+>+  $Name$ : AABBCollider (other) bool
 >> Description : is a constructor for the AABBCollider that takes in other as a paramitor. It also has the information that is the AABBCollider while using the left, Right, up , top, bottom, and back as its sides.
+>>>+ Visualbility : public
 
->+  $Name$ : Draw ()
+>+  $Name$ : Draw () void
 >> Description : This funciton draws the information provided to the RayLib screen.
+>>>+ Visualbility : public
 
->+  $Name$ : Update ()
+>+  $Name$ : Update () void
 >> Description : is a constructor for the AABBCollider that takes in other as a paramitor.
+>>>+ Visualbility : public
 
->+  $Name$ : CheckCollisionCircle (CircleCollider other)
+>+  $Name$ : CheckCollisionCircle (CircleCollider other) bool
 >> Description : it returns the checkCOllisionAABB because this has information in another file that gos into more detail.
+>>>+ Visualbility : public
 
 *That is the End of the AABB Collider*
 The Actor calls is a general class for all actors.
@@ -63,139 +76,179 @@ The Actor calls is a general class for all actors.
 # $File$ : *Actor.cs
 >> Description : Is meant to be a class that is going to hold a lot of genaric information about what is a actor so player and enemy dont have to be so large.
 
-> $Name$ :  enum Shape
+> $Name$ :  enum Shape 
 >>+ Description : holds the vaules for the Cube and the sqhere
+>>>+ Visualbility : public
 
 >+  $Name$ : _name (string)
 >>+ Description : Is a varable that hold the value of name.
+>>>+ Visualbility : private
 
->+ $Name$ : _localPosistion (Vector3)
+>+ $Name$ : _localPosistion (Vector3) string
 >>+ Description : Is a varable that hold the value of the vector3 that hold 3 different values. it holds the (x,y,z) in that order.
+>>>+ Visualbility : private
 
->+  $Name$ : _started (bool)
+>+  $Name$ : _started (bool) 
 >>+ Description : Is a varable that disides to start or not.
+>>>+ Visualbility : private
 
 >+  $Name$ : _speed (float)
 >>+ Description : Is a varable that hold the value of Speed.
+>>>+ Visualbility : private
 
 >+  $Name$ : _forwar (Vector3)
 >>+ Description : Is a varable that hold the value of forawd. that is with in the vector 3 values of (x,y,z). But it is given the value of Matrix4.Identity form the MathLIbaray.
+>>>+ Visualbility : private
 
 >+  $Name$ : _globalTransform (Matrix4)
 >>+ Description : Is a varable that hold the value of the globalTransform but it is given the value of Matrix4.Identity form the MathLIbaray.
 >>>+ Get : returns a vector3 that takes in a _translatin.M03 , _translation.M13, _translation.M23
 >>>>+ Set : is to setTransaltion with the xoffset, yoffset, zoffset  each  is equal to value that is divided by the Vectorcto3 that represetns the Z, Y, or Z  then setsTranslation with the offset it looks like SetTranslation(xoffset, yoffset, zoffset).
+>>>>>+ Visualbility : private
 
 >+  $Name$ : _LocalTransform(Matrix4)
 >>+ Description : Is a varable that hold the value of the LocalTransformbut it is given the value of Matrix4.Identity form the MathLIbaray. 
 >>>+ Get : returns a vector3 that takes in a _translatin.M03 , _translation.M13, _translation.M23
 >>>>+ Set : is to setTransaltion with the value.x, value.Y, value.Z
+>>>>>+ Visualbility : private
 
 >+  $Name$ : _translation (Matrix4)
 >>+ Description : Is a varable that hold the value of the translation but it is given the value of Matrix4.Identity form the MathLIbaray.
+>>>+ Visualbility : private
 
 >+  $Name$ : _rotation (Matrix4)
 >>+ Description : Is a varable that hold the value of the rotation but it is given the value of Matrix4.Identity form the MathLIbaray.
+>>>+ Visualbility : private
  
 >+  $Name$ : _scale (Matrix4)
 >>+ Description : Is a varable that hold the value of the scale but it is given the value of Matrix4.Identity form the MathLIbaray.
+>>>+ Visualbility : private
 
 >+  $Name$ : _coolloder (Collider)
 >>+ Description : Is the call varable for the coollider class that was made.
+>>>+ Visualbility : private
 
 >+  $Name$ : _children (actor)
 >>+ Description : Children is meant to be parented to there proper parent and so the children will follow the parent in all aspects.
+>>>+ Visualbility : private
 
 >+  $Name$ : _parent (actor)
 >>+ Description : Is the parent of the children and is meant to hold the athoridy and is meant to force the child to scale and move with them.
+>>>+ Visualbility : private
 
 >+  $Name$ : _shape (Shape)
 >>+ Description : is the place hold for the Shape enum to be called on.
+>>>+ Visualbility : private
 
 >+  $Name$ : _color (Color)
 >>+ Description : _color is the name that is called each time i want to set a color to the actor.
+>>>+ Visualbility : private
 
 >+  $Name$ : ShapeColor (Color)
 >>+ Description :ShapeColor is the name that is called each time i want to set a color to the actor that is a shape.
+>>>+ Visualbility : public
 
 >+ $Name$ : Size (Vector3)
 >>+ Description : is meant to set the size of the object like the player or the enemy / Actors.
 >>>+ Get : returns a vector3 that takes in a xScale, yScale, zScale. This also sets the Scales with the Vewctor3 that takes in a golbalTransform.
 >>>>+ Set : is to set the scale with the respected x,y,z values.
+>>>>>+ Visualbility : public
 
 >+ $Name$ : Forward (Vector3)
 >>+ Description : is a Vector3 that sets the forward or the front of the caractors and actors in the scene
 >>>+ Get : returns a vector3 that takes in a _rotation.M02, _rotation.M12, _rotation.M22.
 >>>>+ Set : is a vector3 that has a point that point is set to a vlaue that is normalized + the world Possition. Then point is put into the lookat function.
+>>>>>+ Visualbility : public
 
 >+ $Name$ : Actor()
 >>+ Description : is a empty constructor for actor.
+>>>+ Visualbility : public
 
 >+ $Name$ : Actor(float x, float y, float z, float speed, string name = "Actor", Shape shape = Shape.CUBE) :
             this(new Vector3 { X = x, Y = y, Z = z }, name, shape)
 >>+ Description : is a more detailed constructor for Actor that takes all the infomation of the actor calls and uses it for it self.
+>>>+ Visualbility : public
 
 >+ $Name$ : Actor(Vector3 position, string name = "Actor", Shape shape = Shape.CUBE)
 >>+ Description : is a more updated Actor consturctor that take in a posisiton instend of a x,y,z and a speed.
+>>>+ Visualbility : public
 
->+ $Name$ : UpdateTransform()
+>+ $Name$ : UpdateTransform() void
 >>+ Description : Updates the transform that is there to move will rotating scaleing with the parent or not.
+>>>+ Visualbility : public
 
->+ $Name$ : AddChild(Actor child)
+>+ $Name$ : AddChild(Actor child) void
 >>+ Description : Adds a child to the current scene.
+>>>+ Visualbility : public
 
->+ $Name$ : RemoveChild(Actor child)
+>+ $Name$ : RemoveChild(Actor child) bool
 >>+ Description : Removes a child to the current scene.
+>>>+ Visualbility : public
 
->+ $Name$ : Start()
+>+ $Name$ : Start() void
 >>+ Description : is the function that starts the actor and makes the start varable true.
+>>>+ Visualbility : public
 
->+ $Name$ : Update(float deltaTime, Scene currentScene)
+>+ $Name$ : Update(float deltaTime, Scene currentScene) void
 >>+ Description : Updates the current scene and uses the deltaTime to update
+>>>+ Visualbility : public
 
->+ $Name$ : Draw()
+>+ $Name$ : Draw() bool
 >>+ Description : Draws the current information to RayLIb or to the screen
+>>>+ Visualbility : public
 
->+ $Name$ : end()
+>+ $Name$ : end() void
 >>+ Description : The call that ends the actor.
+>>>+ Visualbility : public
 
 >+ $Name$ : CheckForCollision(Actor other) bool
 >>+ Description : Runs a check to see if something had a collision
+>>>+ Visualbility : public
 
->+ $Name$ : OnCollision(Actor actor, Scene currentScene)
+>+ $Name$ : OnCollision(Actor actor, Scene currentScene) void
 >>+ Description : Is called when a onCollision happens.
+>>>+ Visualbility : public
 
 * These are math functions that help with the vector to matrix math *
 
->+  $Name$ :  SetTranslation(float translationX, float translationY, float translationZ)
+>+  $Name$ :  SetTranslation(float translationX, float translationY, float translationZ) void
 >>+ Description : Set the tarnalslation of the actor.
+>>>+ Visualbility : public
 
->+  $Name$ :  Translate(float translationX, float translationY, float translationZ)
+>+  $Name$ :  Translate(float translationX, float translationY, float translationZ) void
 >>+ Description : tarnalslats the actor.
+>>>+ Visualbility : public
 
->+  $Name$ :  SetRotation(float radiansX, float radiansY, float radiansZ)
+>+  $Name$ :  SetRotation(float radiansX, float radiansY, float radiansZ) void
 >>+ Description : Sets the rotation of the actor to the roation x, y, and z.
+>>>+ Visualbility : public
 
->+  $Name$ :  Rotate(float radiansX, float radiansY, float radiansZ)
+>+  $Name$ :  Rotate(float radiansX, float radiansY, float radiansZ) void
 >>+ Description : Rotates the actor.
+>>>+ Visualbility : public
 
->+  $Name$ :   SetScale(float x, float y, float z)
+>+  $Name$ :   SetScale(float x, float y, float z) void
 >>+ Description : sets the scale of the actor
+>>>+ Visualbility : public
 
->+  $Name$ :  Scale(float x, float y, float z)
+>+  $Name$ :  Scale(float x, float y, float z) void
 >>+ Description : Scales the actor
+>>>+ Visualbility : public
 
 
 * is the end of all of the math fucntion for the actor class * 
 
->+  $Name$ :  LookAt(Vector3 position)
+>+  $Name$ :  LookAt(Vector3 position) void
 >>+ Description : Makes the actor Look at a Vector 3 or Target
+>>>+ Visualbility : public
 
->+  $Name$ :  SetColor(Color color)
+>+  $Name$ :  SetColor(Color color) void
 >>+ Description :sets the color of the actor
+>>>+ Visualbility : public
 
->+  $Name$ :  SetColor (Vector4 colorValue)
+>+  $Name$ :  SetColor (Vector4 colorValue) void
 >>+ Description :sets the color of the actor
+>>>+ Visualbility : public
 
  This is the end of the file that is named acotr.cs
 
@@ -204,39 +257,50 @@ the file Name bullet is a class that is parenting form the actor class.
 # $File$ : Bullet
 Description : Is meant to be a bullet
 
->+  $Name$ :  _speed(float)
+>+  $Name$ :  _speed(float) float
 >>+ Description : is meant to hold the vlaue of speed
+>>>+ Visualbility : private
 
 >+  $Name$ :  _velocity(Vector3)
 >>+ Description : is meant to hold the value of the vector3
+>>>+ Visualbility : private
 
 >+  $Name$ :  _moveDirection(Vector3)
 >>+ Description : is meant to hold the value of the vector3
+>>>+ Visualbility : private
 
 >+  $Name$ :  _collisionRaidus(float)
 >>+ Description : is meant to hold the vlaue of of a raidus
+>>>+ Visualbility : private
 
 >+  $Name$ :  _scene(Scene)
 >>+ Description : is meant to hold the vlaue of scene
+>>>+ Visualbility : private
 
 >+  $Name$ :  _timer(float)
 >>+ Description : is meant to hold the vlaue of timer that is 0.
+>>>+ Visualbility : private
 
 >+  $Name$ :  Bullet
 >>+ Description : Is a enmpty bullet consturor.
+>>>+ Visualbility : public
 
 >+  $Name$ :  Bullet(Vector3 posistion, float velocityX, float velocityZ, float speed,string name = "Bullet", Shape shape = Shape.CUBE)
             : base(posistion, name)
 >>+ Description : is the more detailed bullet constructor that is called.
+>>>+ Visualbility : public
 
->+  $Name$ :   Update(float deltaTime, Scene currentScene)
+>+  $Name$ :   Update(float deltaTime, Scene currentScene) void
 >>+ Description : Is the update for the bullet class.
+>>>+ Visualbility : public
 
->+  $Name$ :  OnCollision(Actor actor, Scene currentScene)
+>+  $Name$ :  OnCollision(Actor actor, Scene currentScene) void
 >>+ Description : is the information to do the on collision
+>>>+ Visualbility : public
 
->+  $Name$ :   Draw
+>+  $Name$ :   Draw void
 >>+ Description : Is the draw for actor for the collider.
+>>>+ Visualbility : public
 
 The end for the Bullets class.
 
@@ -248,18 +312,23 @@ Description : is the Circle collider
 
 > $Name$ : _coolidionRadius (float)
 >>+ Description : is meant to hold the radius so it reutrns the radius and gets its value.
+>>>+ Visualbility : private
 
 > $Name$ :CircleCollider(float collisionRadius, Actor owner) : base(owner, ColliderType.CIRCLE)
 >>+ Description : is the cunstructor for the circleCOllider.
+>>>+ Visualbility : public
 
-> $Name$ :  CheckCollisionCircle(CircleCollider other)
+> $Name$ :  CheckCollisionCircle(CircleCollider other) bool
 >>+ Description : Checks for colliditon for the circle.
+>>>+ Visualbility : public
 
-> $Name$ : CheckCollisionAABB(AABBCollider other)
+> $Name$ : CheckCollisionAABB(AABBCollider other) bool
 >>+ Description : Checks for the collision for the AABB and takes in a AABB collider
+>>>+ Visualbility : public
 
-> $Name$ : Draw
+> $Name$ : Draw void
 >>+ Description : Draws to the screen
+>>>+ Visualbility : public
 
 End of the Circle Collider file.
 
@@ -271,30 +340,39 @@ The Collider.cs is meant to be a genaric class about the AABB and circle collide
 
 > $Name$ : Enum ColliderType
 >>+ Description : Hols the circle and AABB collider values.
+>>>+ Visualbility : private
 
 > $Name$ : _owner
 >>+ Description : is a name for the actor.
+>>>+ Visualbility : private
 
 > $Name$ : ColliderType
 >>+ Description : retunrs the ColliderType
+>>>+ Visualbility : public
 
 > $Name$ : Collider(Actor owner, ColliderType colliderType)
 >>+ Description : is a constructor for the collider
+>>>+ Visualbility : public
 
 > $Name$ :  CheckCollision(Actor other)
 >>+ Description : Checks if there was a colliditon for all actors and takes in a actor
+>>>+ Visualbility : public
 
-> $Name$ : CheckCollisionCircle(CircleCollider other) { return false; }
+> $Name$ : CheckCollisionCircle(CircleCollider other) { return false; } bool
 >>+ Description : is a Check for the collider
+>>>+ Visualbility : public
 
-> $Name$ :  CheckCollisionAABB(AABBCollider other) { return false; }
+> $Name$ :  CheckCollisionAABB(AABBCollider other) { return false; } bool
 >>+ Description : is a Check for the collider
+>>>+ Visualbility : public
 
-> $Name$ :  Draw
+> $Name$ :  Draw void
 >>+ Description : is a enmpty draw
+>>>+ Visualbility : public
 
-> $Name$ :  Update
+> $Name$ :  Update void
 >>+ Description : is a empty update
+>>>+ Visualbility : public
 
 End of the Collider class.
 
@@ -305,34 +383,44 @@ the enemy is a child of the  class that is meant to hold the enemys data like it
 
 > $Name$ : _speed (float)
 >> Description : is a holder for speed and reutns a value of speed
+>>>+ Visualbility : private
 
 > $Name$ : _Velocity (Vector3)
 >> Description : is the call for the vector3 
+>>>+ Visualbility : private
 
 > $Name$ : _player (Player)
 >> Description : is the call for player
+>>>+ Visualbility : private
 
 > $Name$ : _health (int)
 >> Description : is a holder for health and return a value of health.
+>>>+ Visualbility : private
 
 > $Name$ : _scene (Scene)
 >> Description : is a call for scene
+>>>+ Visualbility : public
 
 > $Name$ : Enemey(float x, float y, float z, float speed, int health, Player player, string name = "Enemy", Shape shape = Shape.CUBE)
             : base(x, y, z, speed, name, shape)
 >> Description : is a constructor for the enemy
+>>>+ Visualbility : public
 
-> $Name$ :  Update(float deltaTime, Scene currentScene)
+> $Name$ :  Update(float deltaTime, Scene currentScene) void
 >> Description : is the update for the enemy
+>>>+ Visualbility : public
 
-> $Name$ : GetTargetInSight()
+> $Name$ : GetTargetInSight() bool
 >> Description : gets the target in the sight of the enemy or actor this is done with angles.
+>>>+ Visualbility : public
 
-> $Name$ :  OnCollision(Actor actor, Scene currentScene)
+> $Name$ :  OnCollision(Actor actor, Scene currentScene) void
 >> Description : Get the information what to do when collishion happends
+>>>+ Visualbility : public
 
-> $Name$ :  Draw
+> $Name$ :  Draw void
 >> Description : draws the enmey
+>>>+ Visualbility : public
 
 The end of the file enmey.cs
 
@@ -343,57 +431,75 @@ The Engine is the main frame of all of the code and were everthing starts.
 
 > $Name$ : _applicationShouldClose (bool)
 >> Description : is a bool to close the appliction.
+>>>+ Visualbility : private
 
 > $Name$ : _currentSceneIndex (int)
 >> Description : keeps all of the scenes in a number value
+>>>+ Visualbility : private
 
 > $Name$ : _scenes (Scene)
 >> Description : the call for the scenes and is a new instence.
+>>>+ Visualbility : private
 
 > $Name$ :theScene (Scene)
 >> Description The call for scenes that is not meant to make a instence.
+>>>+ Visualbility : private
 
 > $Name$ : _stopWatch (shopWatch)
 >> Description : is a instence of stopWatch.
+>>>+ Visualbility : private
 
 > $Name$ : _camera (camera3D))
 >> Description : is a instence of camera.
+>>>+ Visualbility : private
 
 > $Name$ : _cameraplayer (player)
 >> Description : is a call for plaeyr that is named cameraPlayer
+>>>+ Visualbility : private
 
 > $Name$ : _player (player)
 >> Description : is a call for player
+>>>+ Visualbility : private
 
-> $Name$ : Run()
+> $Name$ : Run() void
 >> Description : is where all of the code stats to begin and form.
+>>>+ Visualbility : public
 
-> $Name$ : InitializeCamera()
+> $Name$ : InitializeCamera() void
 >> Description : initializes the camera and sets its poisition  and perspective.
+>>>+ Visualbility : public
 
-> $Name$ : Start()
+> $Name$ : Start() void
 >> Description : The Start is were all the function are that need to begin at the begining.
+>>>+ Visualbility : public
 
-> $Name$ : End()
+> $Name$ : End() void
 >> Description : is the end of the file or appliction
+>>>+ Visualbility : private
 
-> $Name$ : InitializeActor()
+> $Name$ : InitializeActor() void
 >> Description : is a place to put all my actos and scenes so the start is not clogged with actors and scene.
+>>>+ Visualbility : private
 
-> $Name$ : Update(float deltaTime)
+> $Name$ : Update(float deltaTime) void
 >> Description : is the update for the engine
+>>>+ Visualbility : private
 
-> $Name$ : Draw()
+> $Name$ : Draw() void
 >> Description : Draws to the Raylib console. Draws to the screen
+>>>+ Visualbility : private
 
-> $Name$ : AddScene(Scene scene)
+> $Name$ : AddScene(Scene scene) int
 >> Description : addes the scene to the scene array
+>>>+ Visualbility : public
 
 > $Name$ :  GetNewtKey(ConsoleKey)
 >> Description : Gets the key that is pressed
+>>>+ Visualbility : public
 
-> $Name$ : CloseApplication()
+> $Name$ : CloseApplication() void
 >> Description : uses the _appliction Should Close varable.
+>>>+ Visualbility : public
 
 This is the end of the engine class
 
@@ -402,39 +508,50 @@ The Player class is the class were all the information is. And Player is a child
 > # $File$ : Player.cs
 >> Description : A Class to give controls and other things that allow the person playering it to do things.
 
-> $Name$ : _speed
+> $Name$ : _speed float
 >> Description : is the holder for speed values, and returns the value of speed
+>>>+ Visualbility : private
 
-> $Name$ : _health
+> $Name$ : _health int
 >> Description :  is the holder for health values, and returns the value of speed
+>>>+ Visualbility : private
 
-> $Name$ : _timer
+> $Name$ : _timer float
 >> Description : is a holder to increase and decrease but is set to 0.
+>>>+ Visualbility : private
 
 > $Name$ : Velocity (Vector3)
 >> Description : Is the call for the vector3.
+>>>+ Visualbility : private
 
 > $Name$ : _scene (Scene)
 >> Description : is the call for Scene.
+>>>+ Visualbility : public
 
 > $Name$ : Player()
 >> Description : a empty constructor for player
+>>>+ Visualbility : public
 
 > $Name$ : Player(float x, float y, float z, float speed, int health, string name = "Player", Shape shape = Shape.CUBE)
             : base(x, y, z, speed, name, shape)
 >> Description : is a more detailed constructor for player.
+>>>+ Visualbility : public
 
-> $Name$ : start()
+> $Name$ : start() void
 >> Description : is the start for plaeyr
+>>>+ Visualbility : public
 
-> $Name$ : Update(float deltaTime, Scene currentScene)
+> $Name$ : Update(float deltaTime, Scene currentScene) void
 >> Description : is the update for player.
+>>>+ Visualbility : public
 
-> $Name$ : OnCollision(Actor actor, Scene currentScene)
+> $Name$ : OnCollision(Actor actor, Scene currentScene) void
 >> Description : IS the information for the collision. 
+>>>+ Visualbility : public
 
-> $Name$ : Draw()
+> $Name$ : Draw() void
 >> Description : Draws to the Raylib window or console.
+>>>+ Visualbility : public
 
 This is the end of the player.cs file
 
@@ -443,8 +560,9 @@ The Program.cs is the first part of the opening of the files
 > # $File$ : Program
 >> Description : is the being of engine. It is the start of engine.
 
-> $Name$ :Main(string[] args)
+> $Name$ :Main(string[] args) void
 >> Description : is to make eninge run.
+>>>+ Visualbility : static
 
 This is the end of the Program.cs file.
 
@@ -455,42 +573,55 @@ The Scene.cs is the place all thing that deal with scene are.
 
 > $Name$ : _actors (Actor[])
 >> Description : is a array for actor.
+>>>+ Visualbility : private
 
 > $Name$ : _UIElements (Actor[])
 >> Description : is a array for UIElements
+>>>+ Visualbility : private
 
 > $Name$ : Scene()
 >> Description : is a constructor for the scene class that takes in the actors and the UI elements
+>>>+ Visualbility : public
 
-> $Name$ : Start()
+> $Name$ : Start() void
 >> Description : is the start for scene.
+>>>+ Visualbility : public
 
-> $Name$ :  Update(float deltaTime, Scene currentScene)
+> $Name$ :  Update(float deltaTime, Scene currentScene) void
 >> Description : is the update for the scene class that takes in a currentScene and a deltaTIme.
+>>>+ Visualbility : public
 
-> $Name$ : Draw()
+> $Name$ : Draw() void
 >> Description : Draw for the scene.
+>>>+ Visualbility : public
 
-> $Name$ :  UpdateUI(float deltatTime, Scene currentScene)
+> $Name$ :  UpdateUI(float deltatTime, Scene currentScene) void
 >> Description : Updates the UI while using the currentScene and the deltaTie.
+>>>+ Visualbility : public
 
-> $Name$ :   DrawUI()
+> $Name$ :   DrawUI() void
 >> Description : Draws the UI
+>>>+ Visualbility : public
 
-> $Name$ :   End()
+> $Name$ :   End() void
 >> Description : the end for the scene class.
+>>>+ Visualbility : public
 
-> $Name$ :  AddActor(Actor actor)
+> $Name$ :  AddActor(Actor actor) void
 >> Description : Adds actor to the scene and takes in a actor.
+>>>+ Visualbility : public
 
-> $Name$ : RemoveActor(Actor actor)
+> $Name$ : RemoveActor(Actor actor) bool
 >> Description : removes actor to the scene and takes in a actor.
+>>>+ Visualbility : public
 
-> $Name$ :  AddUIElement(Actor UI)
+> $Name$ :  AddUIElement(Actor UI) void
 >> Description : Adds UI to the scene and takes in a UI.
+>>>+ Visualbility : public
 
-> $Name$ :   RemoveUIElement(Actor UI)
+> $Name$ :   RemoveUIElement(Actor UI) bool
 >> Description : Removes UI to the scene and takes in a UI.
+>>>+ Visualbility : public
 
 This is the end of the Scene.cs file
 
@@ -501,27 +632,35 @@ The UIText file is the file that hopes all the UI elemts
 
 > $Name$ : _text (string)
 >> Description : is the text varable.
+>>>+ Visualbility : private
 
 > $Name$ : _width (int)
 >> Description : holds the value of the width.
+>>>+ Visualbility : private
 
 > $Name$ : _hieght (int)
 >> Description : holds the value of the height.
+>>>+ Visualbility : private
 
 > $Name$ : _speed (float)
 >> Description : holds the value of the speed.
+>>>+ Visualbility : private
 
 > $Name$ : _font (Font)
 >> Description : is the call for Font
+>>>+ Visualbility : public
 
 > $Name$ : _fontSize (int)
 >> Description : holds the value of the Font.
+>>>+ Visualbility : public
 
 > $Name$ :  UIText(float x, float y,float z, String name, Color color,float speed, int width, int height,int fontSize, string text = "")
             : base( x, y, z, speed)
 >> Description : is the consturctor for the UI text
+>>>+ Visualbility : public
 
 > $Name$ : Draw()
 >> Description : is the draw for the UIText
+>>>+ Visualbility : public
 
 This is the end of the documentation for the MathForGames application.
