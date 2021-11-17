@@ -40,10 +40,10 @@ namespace MathLibaray
         /// <param name="radians">The result of the rotation</param>
         public static Matrix4 CreateRotationZ(float radians)
         {
-            return new Matrix4((float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
-                               (float)Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
-                                -(float)Math.Cos(radians), (float)Math.Sin(radians), 1, 0,
-                                0, 0, 0, 1);
+            return new Matrix4((float)Math.Cos(radians),-(float)Math.Sin(radians),0,0,
+                               (float)Math.Sin(radians),(float)Math.Cos(radians),0,0,
+                                0,0,1,0,
+                                0,0,0,1);
         }
         /// <summary>
         /// Creates a new matrix that has been rotated by the given value in radians
@@ -51,10 +51,10 @@ namespace MathLibaray
         /// <param name="radians">The result of the rotation</param>
         public static Matrix4 CreateRotationY(float radians)
         {
-            return new Matrix4((float)Math.Cos(radians), -(float)Math.Sin(radians), 0, 0,
-                               (float)Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
-                                (float)Math.Cos(radians), (float)Math.Sin(radians), 1, 0,
-                                0, 0, 0, 1);
+            return new Matrix4((float)Math.Cos(radians),0,(float)Math.Sin(radians), 0,
+                               0, 1, 0, 0,
+                               -(float)Math.Sin(radians),0,(float)Math.Cos(radians), 0,
+                               0, 0, 0, 1);
         }
 
         /// <summary>
@@ -63,10 +63,10 @@ namespace MathLibaray
         /// <param name="radians">The result of the rotation</param>
         public static Matrix4 CreateRotationX(float radians)
         {
-            return new Matrix4((float)Math.Cos(radians), (float)Math.Sin(radians), 0, 0,
-                               -(float)Math.Sin(radians), (float)Math.Cos(radians), 0, 0,
-                                (float)Math.Cos(radians), (float)Math.Sin(radians), 1, 0,
-                                0, 0, 0, 1);
+            return new Matrix4(1, 0, 0, 0,
+                               0,(float)Math.Cos(radians),-(float)Math.Sin(radians), 0,
+                               0,(float)Math.Sin(radians),(float)Math.Cos(radians), 0,
+                               0, 0, 0, 1);
         }
 
         /// <summary>
@@ -135,16 +135,6 @@ namespace MathLibaray
                                lhs.M30 - rhs.M30, lhs.M31 - rhs.M31, lhs.M32 - rhs.M32, lhs.M33 - rhs.M33);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="lhs"></param>
-        /// <param name="rhs"></param>
-        /// <returns></returns>
-        public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
-        {
-            return new Vector4();
-        }
 
         /// <summary>
         /// Multiplies the Matrixes but they order will allwayes be the left hand then the right
@@ -156,45 +146,51 @@ namespace MathLibaray
         {
             return new Matrix4
                 (
-                    ///The temps multiypy values is rows by coloms
-                    ///Row1, Colum1
+                    //Row1, Column1
                     (lhs.M00 * rhs.M00) + (lhs.M01 * rhs.M10) + (lhs.M02 * rhs.M20) + (lhs.M03 * rhs.M30),
-                    //Row1 , column2
+                    //Row1, Column2
                     (lhs.M00 * rhs.M01) + (lhs.M01 * rhs.M11) + (lhs.M02 * rhs.M21) + (lhs.M03 * rhs.M31),
-                    //Row1 , column 3
+                    //Row1, Column3
                     (lhs.M00 * rhs.M02) + (lhs.M01 * rhs.M12) + (lhs.M02 * rhs.M22) + (lhs.M03 * rhs.M32),
-                    //Row1 , column 4
+                    //Row1 Column 4
                     (lhs.M00 * rhs.M03) + (lhs.M01 * rhs.M13) + (lhs.M02 * rhs.M23) + (lhs.M03 * rhs.M33),
 
-                    //Row2, columns1
+                    //Row2, Colum1
                     (lhs.M10 * rhs.M00) + (lhs.M11 * rhs.M10) + (lhs.M12 * rhs.M20) + (lhs.M13 * rhs.M30),
-                    //Row2, columns2
+                    //Row2, Colum2
                     (lhs.M10 * rhs.M01) + (lhs.M11 * rhs.M11) + (lhs.M12 * rhs.M21) + (lhs.M13 * rhs.M31),
-                    //Row2, columns3
+                    //Row2, Colum3
                     (lhs.M10 * rhs.M02) + (lhs.M11 * rhs.M12) + (lhs.M12 * rhs.M22) + (lhs.M13 * rhs.M32),
-                    //Row2, columns4
+                    //Row2, Colum 4
                     (lhs.M10 * rhs.M03) + (lhs.M11 * rhs.M13) + (lhs.M12 * rhs.M23) + (lhs.M13 * rhs.M33),
 
-                    //Row3, colum1
+                    //Row3, Colum1
                     (lhs.M20 * rhs.M00) + (lhs.M21 * rhs.M10) + (lhs.M22 * rhs.M20) + (lhs.M23 * rhs.M30),
-                    //Row3, colum2
+                    //Row3, Colum2
                     (lhs.M20 * rhs.M01) + (lhs.M21 * rhs.M11) + (lhs.M22 * rhs.M21) + (lhs.M23 * rhs.M31),
-                    //Row3, colum3
+                    //Row3, Colum3
                     (lhs.M20 * rhs.M02) + (lhs.M21 * rhs.M12) + (lhs.M22 * rhs.M22) + (lhs.M23 * rhs.M32),
-                    //Row3, colum4
+                    //Row3, Colum4
                     (lhs.M20 * rhs.M03) + (lhs.M21 * rhs.M13) + (lhs.M22 * rhs.M23) + (lhs.M23 * rhs.M33),
 
-                    //Row3, colum1
+                    //Row4, Colum1
                     (lhs.M30 * rhs.M00) + (lhs.M31 * rhs.M10) + (lhs.M32 * rhs.M20) + (lhs.M33 * rhs.M30),
-                    //Row3, colum2
+                    //Row4, Colum2
                     (lhs.M30 * rhs.M01) + (lhs.M31 * rhs.M11) + (lhs.M32 * rhs.M21) + (lhs.M33 * rhs.M31),
-                    //Row3, colum3
+                    //Row4, Colum3
                     (lhs.M30 * rhs.M02) + (lhs.M31 * rhs.M12) + (lhs.M32 * rhs.M22) + (lhs.M33 * rhs.M32),
-                    //Row3, colum4
+                    //Row4, Colum4
                     (lhs.M30 * rhs.M03) + (lhs.M31 * rhs.M13) + (lhs.M32 * rhs.M23) + (lhs.M33 * rhs.M33)
 
 
                 );
+        }
+        public static Vector4 operator *(Matrix4 lhs, Vector4 rhs)
+        {
+            return new Vector4(lhs.M00 * rhs.X + lhs.M01 * rhs.Y + lhs.M02 * rhs.Z + lhs.M03 * rhs.W,
+                               lhs.M10 * rhs.X + lhs.M11 * rhs.Y + lhs.M12 * rhs.Z + lhs.M13 * rhs.W,
+                               lhs.M20 * rhs.X + lhs.M21 * rhs.Y + lhs.M22 * rhs.Z + lhs.M23 * rhs.W,
+                               lhs.M30 * rhs.X + lhs.M31 * rhs.Y + lhs.M32 * rhs.Z + lhs.M33 * rhs.W);
         }
     }
 }

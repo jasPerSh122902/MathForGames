@@ -44,7 +44,7 @@ namespace MathLibaray
             if (Magnitude == 0)
                 return new Vector2();
 
-            else return this / Magnitude;
+            return this / Magnitude;
         }
 
         /// <param name="lhs">The left hand side of the operation</param>
@@ -62,6 +62,8 @@ namespace MathLibaray
         {
             return (rhs - lhs).Magnitude;
         }
+
+
 
         /// <summary>
         /// Adds the x value and they values of the second vector to the first

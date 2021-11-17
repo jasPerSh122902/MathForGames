@@ -49,7 +49,7 @@ namespace MathLibaray
             if (Magnitude == 0)
                 return new Vector3();
 
-            else return this /= Magnitude;
+             return this /= Magnitude;
         }
 
         /// <param name="lhs">The left hand side of the operation</param>
@@ -133,7 +133,7 @@ namespace MathLibaray
         /// <returns>A new scaled vector</returns>
         public static Vector3 operator /(Vector3 vec3, float scalar)
         {
-            return new Vector3 { X = vec3.X / scalar, Y = vec3.Y / scalar };
+            return new Vector3 { X = vec3.X / scalar, Y = vec3.Y / scalar , Z = vec3.Z / scalar };
         }
 
         /// <summary>
@@ -155,15 +155,7 @@ namespace MathLibaray
         /// <returns>True if the vectors are not equal to each other</returns>
         public static bool operator !=(Vector3 lhs, Vector3 rhs)
         {
-            return lhs.X != rhs.X || lhs.Y != rhs.Y || lhs.Z != rhs.Z;
-        }
-
-        public static Vector3 operator *(Matrix3 mat3, Vector3 vec3)
-        {
-            return new Vector3(
-                ((vec3.X * mat3.M00) + (vec3.Y * mat3.M01) + (vec3.Z * mat3.M02)),
-                ((vec3.X * mat3.M10) + (vec3.Y * mat3.M11) + (vec3.Z * mat3.M12)),
-                ((vec3.X * mat3.M20) + (vec3.Y * mat3.M21) + (vec3.Z * mat3.M22)));
+            return lhs.X != rhs.X && lhs.Y != rhs.Y && lhs.Z != rhs.Z;
         }
     }
 }
