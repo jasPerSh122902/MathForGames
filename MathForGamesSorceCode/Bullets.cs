@@ -10,22 +10,26 @@ namespace MathForGames
     class Bullet : Actor
     {
         private float _speed;
-        private int _xDirection;
-        private int _yDirection;
-        private int _zDirection;
         private Vector3 _velocity;
         private Vector3 _moveDirection;
         private float _collisionRaidus;
         private Scene _scene;
-        private float _cooldownTimer;
-        private float _lastTime;
-        Stopwatch _stopwatch = new Stopwatch();
+        private float _timer = 0;
 
         public float Speed
         {
             get { return _speed; }
         }
 
+        public Vector3 Velocity
+        {
+            get { return _velocity; }
+            set { _velocity = value; }
+        }
+
+        /// <summary>
+        /// empty cunstructor for the bullet
+        /// </summary>
         public Bullet()
         {
 
@@ -42,46 +46,71 @@ namespace MathForGames
         /// <param name="CollisionRadius"></param>
         /// <param name="yDirection"></param>
         /// <param name="name"></param>
-        public Bullet(Vector3 posistion, float speed, int xDirection, int yDirection, int zDirection, string name = "Bullet", Shape shape = Shape.CUBE)
+        public Bullet(Vector3 posistion, float velocityX, float velocityZ, float speed, string name = "Bullet", Shape shape = Shape.CUBE)
             : base(posistion, name)
         {
             _speed = speed;
-            _xDirection = xDirection;
-            _yDirection = yDirection;
-            _zDirection = zDirection;
+            _velocity.X = velocityX;
+            _velocity.Z = velocityZ;
+
 
         }
 
-        public override void Start()
+        /// <summary>
+        /// Updates bullets
+        /// </summary>
+        /// <param name="deltaTime"></param>
+        /// <param name="currentScene"></param>
+        public override void Update(float deltaTime, Scene currentScene)
         {
-            _stopwatch.Start();
-        }
-        public override void Update(float deltaTime)
-        {
-            float currentTime = _stopwatch.ElapsedMilliseconds;
-            Bullet bullet = new Bullet();
+            //moves the bullet based on the velocity
+            _moveDirection = new Vector3(Velocity.X, Velocity.Y, Velocity.Z);
 
-            if (_lastTime > .50f)
-            {
-                _scene.RemoveActor(bullet);
-            }
-            if (_cooldownTimer >= currentTime)
-            {
-                _lastTime = currentTime;
-            }
-            _moveDirection = new Vector3(_xDirection, _yDirection, _zDirection);
-            _velocity = _moveDirection * Speed * deltaTime;
+            //then makes velocity = to the movediection times speed and deltaTIme...
+            _velocity = _moveDirection.Normalized * Speed * deltaTime;
+
+            //Then adds the localPosistion to the velocty...
             LocalPosistion += _velocity;
+
+            //updtates 
+            base.Update(deltaTime, currentScene);
+            //meakse timer adds deltaTime to it
+            _timer += deltaTime;
+
+            //if the timer is greater than 3
+            if (_timer >= 3)
+            {
+                //remove the actor
+                currentScene.RemoveActor(this);
+                //sets timer to 0 to reset
+                _timer = 0;
+            }
+
+
         }
 
-        public override void OnCollision(Actor actor)
+        /// <summary>
+        /// gives oncollision information
+        /// </summary>
+        /// <param name="actor"></param>
+        /// <param name="currentScene"></param>
+        public override void OnCollision(Actor actor, Scene currentScene)
         {
+            //if actor hits the enemy
             if (actor is Enemey)
             {
-                Console.WriteLine("askdjfalskdjflasdjf");
-                //The romove actor dos not work right now
-                //scene.RemoveActor(actor);
+                //remove that actor
+                currentScene.RemoveActor(this);
             }
+
+        }
+        /// <summary>
+        /// draws the screen
+        /// </summary>
+        public override void Draw()
+        {
+            base.Draw();
+            Collider.Draw();
         }
     }
 }

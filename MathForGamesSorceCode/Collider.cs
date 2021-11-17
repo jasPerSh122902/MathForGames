@@ -53,6 +53,8 @@ namespace MathForGames
         public virtual bool CheckCollisionAABB(AABBCollider other) { return false; }
 
         public virtual void Draw() { }
+
+        public virtual void Update() { }
     }
 }
 

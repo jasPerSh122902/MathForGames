@@ -132,19 +132,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jaspe\\.nuget\\packages\\": {}
+    "C:\\Users\\s218005\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jaspe\\OneDrive\\Documents\\GitHub\\MathForGames-master\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
+      "projectUniqueName": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
       "projectName": "MathForGames",
-      "projectPath": "C:\\Users\\Jaspe\\OneDrive\\Documents\\GitHub\\MathForGames-master\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
-      "packagesPath": "C:\\Users\\Jaspe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jaspe\\OneDrive\\Documents\\GitHub\\MathForGames-master\\MathForGames\\MathForGamesSorceCode\\obj\\",
+      "projectPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
+      "packagesPath": "C:\\Users\\s218005\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jaspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\s218005\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -156,10 +156,9 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Jaspe\\OneDrive\\Documents\\GitHub\\MathForGames-master\\MathForGames\\MathLibaray\\MathLibaray.csproj": {
-              "projectPath": "C:\\Users\\Jaspe\\OneDrive\\Documents\\GitHub\\MathForGames-master\\MathForGames\\MathLibaray\\MathLibaray.csproj"
+            "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathLibaray\\MathLibaray.csproj": {
+              "projectPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathLibaray\\MathLibaray.csproj"
             }
           }
         }
@@ -172,7 +171,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Raylib-cs": {
             "target": "Package",
@@ -194,7 +192,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

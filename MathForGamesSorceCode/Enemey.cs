@@ -11,7 +11,7 @@ namespace MathForGames
         private float _speed;
         private Vector3 _velocity;
         private Player _player;
-        private int _health = 1;
+        private int _health;
         public Scene _scene;
 
 
@@ -41,10 +41,10 @@ namespace MathForGames
             _speed = speed;
             _player = player;
             _health = health;
-            health = 1;
+            health = 5;
         }
 
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime, Scene currentScene)
         {
             //Create a vector tht stores the move input
             Vector3 moveDirection = new Vector3();
@@ -57,7 +57,7 @@ namespace MathForGames
             if (GetTargetInSight())
                 LocalPosistion += Velocity;
 
-            base.Update(deltaTime);
+            base.Update(deltaTime, currentScene);
 
 
         }
@@ -79,18 +79,28 @@ namespace MathForGames
             distace = (_player.LocalPosistion - LocalPosistion).Magnitude;
             //55 is the degress increase it for the feild of view
             return (Math.Acos(Vector3.DotProduct(directionOfTarget, Forward))
-                * 180 / Math.PI < 55) && distace < 150; 
+                * 180 / Math.PI < 55) && distace < 360;
         }
 
-        public void Oncollision(Actor actor)
+        /// <summary>
+        /// happens the check for collision calls.
+        /// decrement health or removes actor backses on health
+        /// </summary>
+        /// <param name="actor"></param>
+        /// <param name="currentScene"></param>
+        public override void OnCollision(Actor actor, Scene currentScene)
         {
+            //if actor hits the bullet
             if (actor is Bullet)
             {
-                _health -= 1;
-                Console.WriteLine("o2iakjdflaskjdflaskdjflaskjdf");
-                if (_health == 0)
-                {
+                //dectrement health
+                Health--;
 
+                //when health is lest than 0 ...
+                if (Health <= 0)
+                {
+                    //remove actor
+                    currentScene.RemoveActor(this);
                 }
             }
         }
@@ -98,7 +108,7 @@ namespace MathForGames
         public override void Draw()
         {
             base.Draw();
-            // Collider.Draw();
+            Collider.Draw();
         }
     }
 }

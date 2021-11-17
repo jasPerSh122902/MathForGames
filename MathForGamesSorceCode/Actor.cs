@@ -16,11 +16,10 @@ namespace MathForGames
     {
 
         private string _name;
-        private Vector2 _localPosistion;
+        private Vector3 _localPosistion;
         //made started a bool so we can see if actors is there or not.
         private bool _started;
         private float _speed;
-        private bool _drawLines;
 
 
         private Vector3 _forward = new Vector3(0, 0, 1);
@@ -144,9 +143,9 @@ namespace MathForGames
             get
             {
                 //sets the x and y scale
-                float xScale = new Vector3(_scale.M00, _scale.M10, _scale.M20).Magnitude;
-                float yScale = new Vector3(_scale.M01, _scale.M11, _scale.M21).Magnitude;
-                float zScale = new Vector3(_scale.M02, _scale.M12, _scale.M22).Magnitude;
+                float xScale = new Vector3(GolbalTransform.M00, GolbalTransform.M10, GolbalTransform.M20).Magnitude;
+                float yScale = new Vector3(GolbalTransform.M01, GolbalTransform.M11, GolbalTransform.M21).Magnitude;
+                float zScale = new Vector3(GolbalTransform.M02, GolbalTransform.M12, GolbalTransform.M22).Magnitude;
 
                 //returns the x and y
                 return new Vector3(xScale, yScale, zScale);
@@ -161,6 +160,11 @@ namespace MathForGames
         {
             get { return new Vector3(_rotation.M02, _rotation.M12, _rotation.M22); }
             //need a vector 3 set for forward
+            set
+            {
+                Vector3 point = value.Normalized + WorldPosistion;
+                LookAt(point);
+            }
         }
 
         /// <summary>
@@ -208,11 +212,13 @@ namespace MathForGames
         /// </summary>
         public void UpdateTransform()
         {
+            //allos movement with the transform by multitling the translation and roation with the scale...
             _LocalTransform = _translation * _rotation * _scale;
 
-            if (Parent != null)
+            //if parent dos not eggsit
+            if (Parent != null)//update the GolbalTransform by the parent...
                 GolbalTransform = Parent.GolbalTransform * LocalTransform;
-            else
+            else//if else make the local and golbal transform equal 
                 GolbalTransform = LocalTransform;
 
         }
@@ -305,11 +311,12 @@ namespace MathForGames
         /// Updtated the position for the actor
         /// </summary>
         /// <param name="deltaTime"></param>
-        public virtual void Update(float deltaTime)
+        public virtual void Update(float deltaTime, Scene currentScene)
         {
 
             UpdateTransform();
-            Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y + ":" , WorldPosistion.Z);
+            //prints things to the console 
+            Console.WriteLine(_name + ":" + WorldPosistion.X + ":" + WorldPosistion.Y);
         }
 
         /// <summary>
@@ -317,21 +324,25 @@ namespace MathForGames
         /// </summary>
         public virtual void Draw()
         {
+            //makes a posisiton with the world position for each x,y, and z
             System.Numerics.Vector3 position = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
 
-            //System.Numerics.Vector3 startPos = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
+            //makes a posisiton with the world position for each x,y, and z
+            System.Numerics.Vector3 startPos = new System.Numerics.Vector3(WorldPosistion.X, WorldPosistion.Y, WorldPosistion.Z);
+
+            //makes a posisiton with the world position for each x,y, and z
             System.Numerics.Vector3 endPos = new System.Numerics.Vector3(WorldPosistion.X + Forward.X * 10, WorldPosistion.Y + Forward.Y * 10, WorldPosistion.Z + Forward.Z * 10);
 
+            //makes a shape 
             switch (_shape)
             {
-                case Shape.CUBE:
+                case Shape.CUBE://with the name Cube a x,y, and ,z to fit into
                     Raylib.DrawCube(position, Size.X, Size.Y, Size.Z, ShapeColor);
                     break;
-                case Shape.SPHERE:
+                case Shape.SPHERE://gives the name sqhere a x.
                     Raylib.DrawSphere(position, Size.X, ShapeColor);
                     break;
             }
-            Raylib.DrawLine3D(position, endPos, Color.RED);
 
         }
 
@@ -340,14 +351,6 @@ namespace MathForGames
         /// The end for actor
         /// </summary>
         public void End()
-        {
-
-        }
-
-        /// <summary>
-        /// Startes when the player hits a target.
-        /// </summary>
-        public virtual void OnCollision(Actor actor)
         {
 
         }
@@ -367,6 +370,8 @@ namespace MathForGames
 
 
         }
+        public virtual void OnCollision(Actor actor, Scene currentScene)
+        { }
         /// <summary>
         /// Sets the position of the actor
         /// </summary>
@@ -458,6 +463,7 @@ namespace MathForGames
             //new X axis as a Vector3
             Vector3 newXAxis = new Vector3(1, 0, 0);
 
+
             //if the direction vector is parallel to the alignAxis vector...
             if (Math.Abs(direction.Y) > 0 && direction.X == 0 && direction.Z == 0)
             {
@@ -489,6 +495,7 @@ namespace MathForGames
                 newYAxis.Normalize();
             }
 
+
             //rotaties the curretn Matrix4 on all values other than the W
             _rotation = new Matrix4(newXAxis.X, newYAxis.X, direction.X, 0,
                                     newXAxis.Y, newYAxis.Y, direction.Y, 0,
@@ -507,7 +514,7 @@ namespace MathForGames
         /// is the overloat for SetColor
         /// </summary>
         /// <param name="colorValue"></param>
-        public void SetColor (Vector4 colorValue)
+        public void SetColor(Vector4 colorValue)
         {
             // the x is red, y is green, Z is brown, W is alfa
             _color = new Color((int)colorValue.X, (int)colorValue.Y, (int)colorValue.Z, (int)colorValue.W);

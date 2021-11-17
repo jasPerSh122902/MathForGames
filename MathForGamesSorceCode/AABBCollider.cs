@@ -10,6 +10,7 @@ namespace MathForGames
     {
         private float _width;
         public float _height;
+        public float _lenght;
 
         /// <summary>
         /// The size of ths collider on the x axis
@@ -29,6 +30,12 @@ namespace MathForGames
             set { _height = value; }
         }
 
+        public float Lenght
+        {
+            get { return _lenght; }
+            set { _lenght = value; }
+        }
+
         /// <summary>
         /// The farthest left x position of the collider
         /// </summary>
@@ -36,7 +43,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.X + -(_width / 2);
+                return Owner.LocalPosistion.X + -(Width / 2);
             }
         }
 
@@ -47,7 +54,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.X + _width / 2;
+                return Owner.LocalPosistion.X + (Width / 2);
             }
         }
 
@@ -58,7 +65,7 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.Y + -(_height / 2);
+                return Owner.LocalPosistion.Y + -(Height / 2);
             }
         }
 
@@ -69,7 +76,23 @@ namespace MathForGames
         {
             get
             {
-                return Owner.LocalPosistion.Y + Height / 2;
+                return Owner.LocalPosistion.Y + (Height / 2);
+            }
+        }
+
+        public float Front
+        {
+            get
+            {
+                return Owner.LocalPosistion.Y + -(Lenght / 2);
+            }
+        }
+
+        public float Back
+        {
+            get
+            {
+                return Owner.LocalPosistion.Y + (Lenght / 2);
             }
         }
 
@@ -79,10 +102,11 @@ namespace MathForGames
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="owner"></param>
-        public AABBCollider(float width, float height, Actor owner) : base(owner, ColliderType.AABB)
+        public AABBCollider(float width, float height, float length, Actor owner) : base(owner, ColliderType.AABB)
         {
             _width = width;
             _height = height;
+            _lenght = length;
         }
 
         public override bool CheckCollisionAABB(AABBCollider other)
@@ -95,9 +119,11 @@ namespace MathForGames
             //... The last two is to check if the main object is lest than the second object.
             //Return true if There is an overlap between boxes.
             if (other.Left <= Right &&
-                other.Top <= Bottom &&
-                Left <= other.Right &&
-                Top <= other.Bottom)
+               other.Top <= Bottom &&
+               Left <= other.Right &&
+               Top <= other.Bottom &&
+               other.Front <= Back &&
+               Front <= other.Back)
             {
                 return true;
             }
@@ -111,7 +137,14 @@ namespace MathForGames
         public override void Draw()
         {
             //is meant to draw the collider that is the rectangle
-            Raylib.DrawRectangleLines((int)Left, (int)Top, (int)Width, (int)Height, Color.PINK);
+            Raylib.DrawCube(new System.Numerics.Vector3(Owner.WorldPosistion.X, Owner.WorldPosistion.Y, Owner.WorldPosistion.Z), 5, 5, 5, Color.BROWN);
+        }
+
+        public override void Update()
+        {
+            _height = Owner.Size.X;
+            _width = Owner.Size.Y;
+            _lenght = Owner.Size.Z;
         }
 
         public override bool CheckCollisionCircle(CircleCollider other)
@@ -120,4 +153,3 @@ namespace MathForGames
         }
     }
 }
-

@@ -61,20 +61,24 @@ namespace MathForGames
         /// <param name="width">long the text box is </param>
         /// <param name="height">how high you text box is</param>
         /// <param name="text">The words that is with in the UI</param>
-        public UIText(float x, float y,float z, String name, Color color,float speed, int width, int height,int fontSize, string text = "")
-            : base( x, y, z, speed)
+        public UIText(float x, float y, float z, String name, Color color, float speed, int width, int height, int fontSize, string text = "")
+            : base(x, y, z, speed)
         {
             Text = text;
             Width = width;
             Height = height;
             _font = Raylib.LoadFont("resources/fonts/alagard.png");
             _fontSize = fontSize;
+            SetColor(color);
         }
 
         public override void Draw()
         {
-            Rectangle textBox = new Rectangle(LocalPosistion.X, LocalPosistion.Y, Width, Height);
-            Raylib.DrawTextRec(_font, Text, textBox, _fontSize,1, true, Color.BLUE);
+
+            Rectangle rec = new Rectangle(LocalPosistion.X, LocalPosistion.Y, Width, Height);
+            Raylib.DrawRectangleRec(rec, Color.DARKGRAY);
+            Raylib.DrawTextRec(_font, Text, rec, _fontSize, 1, true, ShapeColor);
+
         }
     }
 }

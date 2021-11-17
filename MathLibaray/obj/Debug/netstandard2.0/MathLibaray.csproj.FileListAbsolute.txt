@@ -15,3 +15,11 @@ C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLi
 C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.csproj.CoreCompileInputs.cache
 C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.dll
 C:\Users\Jaspe\OneDrive\Documents\GitHub\MathForGames-master\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.pdb
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.deps.json
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\bin\Debug\netstandard2.0\MathLibaray.pdb
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.csprojAssemblyReference.cache
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.AssemblyInfoInputs.cache
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.AssemblyInfo.cs
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.dll
+C:\Users\s218005\Documents\GitHub\MathForGames\MathForGames\MathLibaray\obj\Debug\netstandard2.0\MathLibaray.pdb
