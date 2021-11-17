@@ -9,7 +9,10 @@ The appliction will start and all you will see is your player and the enemy goin
 >>As said before this applictation is meant to be a test for the vector 3 and 4 while using the roation and translation.
 So the applictation is quite short.<<
 
-2.* Object infromation*
+1.Starting appliction
+ You need acess to the zip file math for games and locate the .exe File this is the activation key. But this appliction also needs the mathLibaray to function properly and so the zip file MathLibaray unzip it and use the .exe.
+
+2.Object infromation
 
  # $File$: $AABBCollider.cs$
 is meant to hold the information that is the AABBCollider
