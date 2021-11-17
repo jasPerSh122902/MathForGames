@@ -14,7 +14,6 @@ namespace MathLibaray
             Y = y;
         }
 
-        
         /// <summary>
         /// Gets the length of the vector
         /// </summary>
