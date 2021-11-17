@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj": {}
+    "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGames\\MathForGames.csproj": {}
   },
   "projects": {
-    "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj": {
+    "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGames\\MathForGames.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
+        "projectUniqueName": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGames\\MathForGames.csproj",
         "projectName": "MathForGames",
-        "projectPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\MathForGames.csproj",
+        "projectPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGames\\MathForGames.csproj",
         "packagesPath": "C:\\Users\\s218005\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGamesSorceCode\\obj\\",
+        "outputPath": "C:\\Users\\s218005\\Documents\\GitHub\\MathForGames\\MathForGames\\MathForGames\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\s218005\\AppData\\Roaming\\NuGet\\NuGet.Config",
