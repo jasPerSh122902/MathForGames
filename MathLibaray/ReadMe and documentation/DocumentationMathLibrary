@@ -1,5 +1,9 @@
 # *MathLibrary*
-The MathLibrary is a library of all of the math and logic that is with in the game called MathForGames.  To use this infomraiton you have do dowload the zip open it and make your main project that you need this with make  it a reference and that should do. If that dos not work just copies each sorce code file into a folder called eny thing you want and rename the name spaces for the code and that should work as well.
+The MathLibrary is a library of all of the math and logic that is with in the game called MathForGames. 
+
+# To Start
+
+ To use this infomraiton you have do dowload the zip open it and make your main project that you need this with make  it a reference and that should do it. If that dos not work just copies each sorce code file into a folder called eny thing you want and rename the name spaces for the code and that should work as well.
 
 The Matrix3.cs is a file that holds the information on the Matrix 3.
 
