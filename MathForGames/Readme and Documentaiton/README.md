@@ -15,6 +15,8 @@
 >> S-is-to-go-down.
 >> D-is-to-go-right.
 >> 
+>> To-Shoot
+>>
 >> Up-key = up.
 >> Down-key = down.
 >> Left-key = left.
@@ -37,4 +39,8 @@ The-purpose-of-this-is-to-simplify-the-moving-process.
 
 >>But-if-you-want-to-place-something-on-the-board-then-you-must-use-the-Vector2-Vector3-and-Vector4-struct-place-you-point-or-actor.
 
+# Accsess the game
+
 To-acsess-eny-of-this-go-to-the-git-hub-and-download-the-zip-file-from-release-and-use-the-.exe-file-to-open-the-game.
+
+Use-the-zipe-file
